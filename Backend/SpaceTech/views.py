@@ -1,10 +1,10 @@
 from django.shortcuts import render
 from rest_framework import viewsets
 from .serializers import SpaceTechSerializer
-from .models import SpaceTechp
+from .models import SpaceTech
 
 # Create your views here.
 
-class SpaceTechpView(viewsets.ModelViewSet):
+class SpaceTechView(viewsets.ModelViewSet):
     serializer_class = SpaceTechSerializer
-    queryset = SpaceTechp.objects.all()
+    queryset = SpaceTech.objects.all()
