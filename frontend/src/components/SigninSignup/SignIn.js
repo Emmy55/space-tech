@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './SignIn.css';
+
+
 import Logo from '../Assets/Logo.png';
 import OR from '../Assets/Group 1.png';
 import Link from '../Assets/logos_facebook.svg';
@@ -44,7 +46,7 @@ function SignIn() {
         <p className="signup-link">
           {isSignInMode
             ? "Don't have an account? "
-            : 'Already have an account? '}
+            : 'Already have an account? '
           <a href="#" onClick={() => setIsSignInMode(!isSignInMode)}>
             {actionText}
           </a>
