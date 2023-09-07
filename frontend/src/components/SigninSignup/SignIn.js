@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import './SignIn.css';
 
-
 import Logo from '../Assets/Logo.png';
 import OR from '../Assets/Group 1.png';
 import Link from '../Assets/logos_facebook.svg';
@@ -33,20 +32,20 @@ function SignIn() {
           <img src={OR} alt="Logo" />
         </div>
         <div className="social-icons">
-        <a href="https://www.google.com">
-          <img src={google} alt="google" /> </a>
-
+          <a href="https://www.google.com">
+            <img src={google} alt="google" />
+          </a>
           <a href="https://www.linkedin.com">
-          <img src={Llnk} alt="linkedin" /></a>
-
-        <a href="https://www.facebook.com">
-          <img src={Link} alt="facebook" /></a>
-
+            <img src={Llnk} alt="linkedin" />
+          </a>
+          <a href="https://www.facebook.com">
+            <img src={Link} alt="facebook" />
+          </a>
         </div>
         <p className="signup-link">
           {isSignInMode
             ? "Don't have an account? "
-            : 'Already have an account? '
+            : 'Already have an account? '}
           <a href="#" onClick={() => setIsSignInMode(!isSignInMode)}>
             {actionText}
           </a>
@@ -57,4 +56,3 @@ function SignIn() {
 }
 
 export default SignIn;
-
