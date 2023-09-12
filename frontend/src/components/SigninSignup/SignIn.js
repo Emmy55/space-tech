@@ -44,13 +44,14 @@ function SignIn() {
 
         </div>
         <p className="signup-link">
-          {isSignInMode
-            ? "Don't have an account? "
-            : 'Already have an account? '
-          <a href="#" onClick={() => setIsSignInMode(!isSignInMode)}>
-            {actionText}
-          </a>
-        </p>
+  {isSignInMode
+    ? "Don't have an account? "
+    : 'Already have an account? '}
+  <a href="#" onClick={() => setIsSignInMode(!isSignInMode)}>
+    {actionText}
+  </a>
+</p>
+
       </div>
     </div>
   );
