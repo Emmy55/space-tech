@@ -1,18 +1,20 @@
-import React, { useState } from 'react';
-import './SignIn.css';
+import React, { useState } from "react";
+import "./SignIn.css";
 
-import Logo from '../Assets/Logo.png';
-import OR from '../Assets/Group 1.png';
-import Link from '../Assets/logos_facebook.svg';
-import Llnk from '../Assets/skill-icons_linkedin.svg';
-import google from '../Assets/icons_google.svg';
+import Logo from "../Assets/Logo.png";
+import OR from "../Assets/Group 1.png";
+import Link from "../Assets/logos_facebook.svg";
+import Llnk from "../Assets/skill-icons_linkedin.svg";
+import google from "../Assets/icons_google.svg";
 
 function SignIn() {
   const [isSignInMode, setIsSignInMode] = useState(true);
 
-  const actionText = isSignInMode ? 'Sign In' : 'Sign Up';
-  const welcomeText = isSignInMode ? 'Welcome Back!' : 'Join SpaceTech';
-  const continueText = isSignInMode ? 'Sign in to continue' : 'Register to continue';
+  const actionText = isSignInMode ? "Sign In" : "Sign Up";
+  const welcomeText = isSignInMode ? "Welcome Back!" : "Join SpaceTech";
+  const continueText = isSignInMode
+    ? "Sign in to continue"
+    : "Register to continue";
 
   return (
     <div className="App">
@@ -43,24 +45,13 @@ function SignIn() {
           </a>
         </div>
         <p className="signup-link">
-<<<<<<< HEAD
-  {isSignInMode
-    ? "Don't have an account? "
-    : 'Already have an account? '}
-  <a href="#" onClick={() => setIsSignInMode(!isSignInMode)}>
-    {actionText}
-  </a>
-</p>
-
-=======
           {isSignInMode
             ? "Don't have an account? "
-            : 'Already have an account? '}
+            : "Already have an account? "}
           <a href="#" onClick={() => setIsSignInMode(!isSignInMode)}>
             {actionText}
           </a>
         </p>
->>>>>>> c71ee57224dbc372b0ce29d39325d3733480c79c
       </div>
     </div>
   );
