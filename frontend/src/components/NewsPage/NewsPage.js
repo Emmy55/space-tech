@@ -1,6 +1,15 @@
-import React from "react";
+import React, { useState } from "react";
+// Components import start
+import DropdownMenu from "./DropdownMenu";
+// Components import end
+
+// CSS import start
 import "./NewsPage.css";
+// CSS import end
+
 // import { Link } from "react-router-dom";
+
+// Images import start
 import Logo from "../Assets/Images/Logo.svg";
 import Notification from "../Assets/Images/notification-line.svg";
 import Profile from "../Assets/Images/Sarah-profile.svg";
@@ -11,8 +20,12 @@ import ProfileTopics from "../Assets/Images/sarah-hot-topics.svg";
 import News1 from "../Assets/Images/News1.png";
 import VerifyBadge from "../Assets/Images/verified.svg";
 import SearchIcon from "../Assets/Images/search.svg";
+// Images import end
 
 export default function NewsPage() {
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => setShowMenu(!showMenu);
   return (
     <div>
       <header className="header">
@@ -40,8 +53,19 @@ export default function NewsPage() {
             />
           </div>
 
-          <img className="profile" src={Profile} alt="Profile" />
-          <img className="drop-down" src={DropDown} alt="drop down" />
+          <img
+            onClick={toggleMenu}
+            className="profile"
+            src={Profile}
+            alt="Profile"
+          />
+          <img
+            onClick={toggleMenu}
+            className="drop-down"
+            src={DropDown}
+            alt="drop down"
+          />
+          {showMenu && <DropdownMenu />}
         </div>
       </header>
       <div className="header-links">
