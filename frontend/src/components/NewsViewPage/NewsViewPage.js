@@ -10,6 +10,8 @@ import LinkedIn from "../Assets/LinkedIn.png";
 import Instagram from "../Assets/Instagram.png";
 import ArrowUp from "../Assets/arrowup.png";
 import ArrowRight from '../Assets/arrowRight.png';
+import Laptop from '../Assets/Laptop.png';
+
 
 export default function NewsViewPage() {
   return (
@@ -39,25 +41,25 @@ export default function NewsViewPage() {
             />
           </div>
 
+
           <img className="profile" src={Profile} alt="Profile" />
           
         </div>
       </header>
 
+      <div className='container'>
+<div className= 'market'>
       <h1>Market intelligence firm Sensor Tower</h1>
-      <h1>conducts layoffs, several execs out</h1>
+      <h1>conducts layoffs, several execs out</h1></div>
 
       <div className="profile-picture">
         <img className="profile" src={Profile} alt="Profile" />
-      </div>
+     <span className="author">Sarah Follow</span>
+    <p>9:01 PM WAT-September 11, 2023</p></div>
 
-      <p>
-        <span className="author">Sarah Follow</span>
-      </p>
-      <p>9:01 PM WAT-September 11, 2023</p>
-
-      <div className='Laptop'></div>
-      <img className="profile" src={Profile} alt="Profile" />
+    <div className="Laptop">
+    <img className="profile" src={Laptop} alt="Laptop" />
+    </div>
 
       <div className="article-content">
         <p>
@@ -68,78 +70,82 @@ export default function NewsViewPage() {
           executives, TechCrunch has learned from multiple sources,
           including the CMO, CFO and chief product officer. Other teams
           impacted include finance and nearly all of marketing, we’re
-          hearing.
+          hearing. Sensor Tower, a prominent market intelligence firm for the app
+          economy, this week laid off a notable portion of its workforce,
+          estimated at around 40 people out of the 270+ at the company,
+          according to LinkedIn’s headcount. The layoffs included C-suite
+          executives, TechCrunch has learned from multiple sources,
+          including the CMO, CFO and chief product officer. Other teams
+          impacted include finance and nearly all of marketing, we’re
+          hearing. 
         </p>
 
         {/* ... (rest of the article content) */}
       </div>
 
-      <h2>COMMENTS</h2>
+      <h2 className='comment'>COMMENTS</h2>
 
-      <div className="comment">
-        <div className="profile-picture">
+      
+      <div className="sarah"></div>
+      <div className="profile-sarah">
           <img className="profile" src={Profile} alt="Profile" />{' '}
-          <span className="author">Sarah | September 11, 2023</span>
-          <p>
+          <span className="autho">Sarah | September 11, 2023</span> </div>
+          <p className="sarah-comment">
             This is a nice article, I have been looking for this link for a
             while now, I will be waiting for your next article and I will
             also give you a follow right now
           </p>
-        </div>
-      </div>
+
+          <div className="sarah"></div>
+      <div className="profile-sarah">
+          <img className="profile" src={Profile} alt="Profile" />{' '}
+          <span className="autho">Sarah | September 11, 2023</span> </div>
+          <p className="sarah-comment">
+            This is a nice article, I have been looking for this link for a
+            while now, I will be waiting for your next article and I will
+            also give you a follow right now
+          </p>
+
+          <div className="sarah"></div>
+      <div className="profile-sarah">
+          <img className="profile" src={Profile} alt="Profile" />{' '}
+          <span className="autho">Sarah | September 11, 2023</span> </div>
+          <p className="sarah-comment">
+            This is a nice article, I have been looking for this link for a
+            while now, I will be waiting for your next article and I will
+            also give you a follow right now
+          </p>
+
+          <div className="sarah"></div>
+      <div className="profile-sarah">
+          <img className="profile" src={Profile} alt="Profile" />{' '}
+          <span className="autho">Sarah | September 11, 2023</span> </div>
+          <p className="sarah-comment">
+            This is a nice article, I have been looking for this link for a
+            while now, I will be waiting for your next article and I will
+            also give you a follow right now
+          </p>
+          
+        
+      
 
       {/* Repeat the comment section as needed... */}
 
+      <div className='comment-form'>
       <h2>Leave a comment</h2>
       <div className='comment-form'></div>
       <form>
         <div className='form-control'></div>
-        <label htmlFor='name'>Name</label>
-        <input type='text' id='name' placeholder='Comment' />
-      </form>
+    <input type='text'  placeholder='Comment' />
+      </form> </div>
 
       <button>Post comment</button>
 
-      <div className="lowerFooter">
-        <h3>SpaceTech</h3>
-        <div className="about">
-          <b>
-            <p>About</p>
-          </b>
-          <a href=".">SpaceTech</a>
-          <a href=".">Contact Us</a>
-          <a href=".">Staff</a>
-          <a href=".">Site Map</a>
-        </div>
-
-        <div className="work">
-          <b>
-            <p>Work With Us</p>
-          </b>
-          <a href=".">How to publish</a>
-          <a href=".">Set up profile</a>
-        </div>
-
-        <div className="social">
-          <p>Follow Us!</p>
-          <div className="follow">
-            <a href="https://facebook.com/">
-              <img src={Facebook} alt="Facebook" />
-            </a>
-            <a href="https://instagram.com/">
-              <img src={Instagram} alt="Instagram" />
-            </a>
-            <a href="https://linkedin.com/">
-              <img src={LinkedIn} alt="LinkedIn" />
-            </a>
-          </div>
-          <a className="arrowUp" href="#hero">
-            <img src={ArrowUp} alt="ArrowUp" />
-          </a>
-        </div>
       </div>
+    
+      </div>
+        
 
-      <p className="copy">&copy; 2023-SpaceTech. All Rights Reserved.</p>
-    </div>
+        
   );
 }
