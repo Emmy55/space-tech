@@ -13,40 +13,35 @@ export default function DropdownMenu() {
     <div className="dropdown-menu">
       <div className="dropdown-box-1">
         <div className="item2">
-          <img className="item-img" src={Write} alt="" />
-          <a href="#">Menu</a>
+          <img className="item-img" src={Write} alt="Write Icon" />
+          <a href="#">Write</a>
         </div>
         <div className="item2">
-          <img className="item-img" src={ProfileIcon} alt="" />
-          <a href="#">Menu</a>
+          <img className="item-img" src={ProfileIcon} alt="Profile Icon" />
+          <a href="#">Profile</a>
         </div>
         <div className="item2">
-          <img className="item-img" src={Publish} alt="" />
-          <a href="#">Menu</a>
-        </div>
-        <div className="item2">
-          <img className="item-img" src="" alt="" />
-          <a href="#">Menu</a>
+          <img className="item-img" src={Publish} alt="Published Icon" />
+          <a href="#">Published</a>
         </div>
       </div>
       {/*  */}
       <div className="dropdown-box-2">
         <div className="item2">
-          <img className="item-img" src="" alt="" />
-          <a href="#">Menu</a>
+          <img className="item-img" src={Settings} alt="Settings Icon" />
+          <a href="#">Settings</a>
         </div>
         <div className="item2">
-          <img className="item-img" src="" alt="" />
-          <a href="#">Menu</a>
+          <img className="item-img" src={Help} alt="Help Icon" />
+          <a href="#">Help</a>
         </div>
         <div className="item2">
-          <img className="item-img" src="" alt="" />
-          <a href="#">Menu</a>
+          <img className="item-img" src={AboutUs} alt="AboutUs Icon" />
+          <a href="#">About Us</a>
         </div>
-        <div className="item2">
-          <img className="item-img" src="" alt="" />
-          <a href="#">Menu</a>
-        </div>
+        <a className="sign-out" href="">
+          Sign out
+        </a>
       </div>
     </div>
   );

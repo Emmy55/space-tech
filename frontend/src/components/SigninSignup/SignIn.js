@@ -3,55 +3,68 @@ import "./SignIn.css";
 
 import Logo from "../Assets/Logo.png";
 import OR from "../Assets/Group 1.png";
+import LineMobile from "../Assets/Images/line-mobile.png";
 import Link from "../Assets/logos_facebook.svg";
 import Llnk from "../Assets/skill-icons_linkedin.svg";
 import google from "../Assets/icons_google.svg";
+// import BG from "../Assets/Images/sign-in-bg.svg";
+import BG1 from "../Assets/Images/bg-1.svg";
+import BG2 from "../Assets/Images/bg-2.svg";
+import BG3 from "../Assets/Images/bg-3.svg";
+// import bgMobile from "../Assets/Images/bg-mobile.svg";
 
 function SignIn() {
-  const [isSignInMode, setIsSignInMode] = useState(true);
+  // const [isSignInMode, setIsSignInMode] = useState(true);
 
-  const actionText = isSignInMode ? "Sign In" : "Sign Up";
-  const welcomeText = isSignInMode ? "Welcome Back!" : "Join SpaceTech";
-  const continueText = isSignInMode
-    ? "Sign in to continue"
-    : "Register to continue";
+  // const actionText = isSignInMode ? "Sign In" : "Sign Up";
+  // const welcomeText = isSignInMode ? "Welcome Back!" : "Join SpaceTech";
+  // const continueText = isSignInMode
+  //   ? "Sign in to continue"
+  //   : "Register to continue";
 
   return (
-    <div className="App">
-      <div className="welcome-container">
-        <h2>{welcomeText}</h2>
-        <p>{continueText}</p>
-        <div className="logo-container">
-          <img src={Logo} alt="Logo" />
+    <div className="bg-con">
+      <img className="bg-1" src={BG1} alt="" />
+      <img className="bg-2" src={BG2} alt="" />
+      <img className="bg-3" src={BG3} alt="" />
+      <div className="bg-con1">
+        <div className="main-con">
+          <div className="welcome-container">
+            <h2 className="big-header">Welcome Back!</h2>
+            <p className="small-header">Sign in to continue</p>
+            <div className="logo-container">
+              <img src={Logo} alt="Logo" />
+            </div>
+          </div>
+          <div className="signin-form">
+            <form className="form">
+              <input className="input" type="email" placeholder="Email" />
+              <input className="input" type="password" placeholder="Password" />
+              <input className="submit-button" type="submit" value="SIGN IN" />
+            </form>
+            <div className="OR">
+              <img className="line-desktop" src={OR} alt="Logo" />
+              <img className="line-mobile" src={LineMobile} alt="Logo" />
+            </div>
+            <div className="social-icons">
+              <a href="https://www.google.com">
+                <img src={google} alt="google" />
+              </a>
+              <a className="linkedin" href="https://www.linkedin.com">
+                <img src={Llnk} alt="linkedin" />
+              </a>
+              <a href="https://www.facebook.com">
+                <img src={Link} alt="facebook" />
+              </a>
+            </div>
+            <p className="signup-link">
+              Don't have an account?
+              <a className="sign-up" href="#">
+                Sign Up
+              </a>
+            </p>
+          </div>
         </div>
-      </div>
-      <div className="signin-form">
-        {!isSignInMode && <input type="text" placeholder="Username" />}
-        <input type="email" placeholder="Email" />
-        <input type="password" placeholder="Password" />
-        <button className="Sign-in">{actionText}</button>
-        <div className="OR">
-          <img src={OR} alt="Logo" />
-        </div>
-        <div className="social-icons">
-          <a href="https://www.google.com">
-            <img src={google} alt="google" />
-          </a>
-          <a href="https://www.linkedin.com">
-            <img src={Llnk} alt="linkedin" />
-          </a>
-          <a href="https://www.facebook.com">
-            <img src={Link} alt="facebook" />
-          </a>
-        </div>
-        <p className="signup-link">
-          {isSignInMode
-            ? "Don't have an account? "
-            : "Already have an account? "}
-          <a href="#" onClick={() => setIsSignInMode(!isSignInMode)}>
-            {actionText}
-          </a>
-        </p>
       </div>
     </div>
   );
