@@ -1,6 +1,17 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
+// Components import start
+import DropdownMenu from "./DropdownMenu";
+import LinksdropDown from "./LinksdropDown";
+import SearchdropDown from "./SearchdropDown";
+// Components import end
+
+// CSS import start
 import "./NewsPage.css";
+// CSS import end
+
 // import { Link } from "react-router-dom";
+
+// Images import start
 import Logo from "../Assets/Images/Logo.svg";
 import Notification from "../Assets/Images/notification-line.svg";
 import Profile from "../Assets/Images/Sarah-profile.svg";
@@ -11,10 +22,45 @@ import ProfileTopics from "../Assets/Images/sarah-hot-topics.svg";
 import News1 from "../Assets/Images/News1.png";
 import VerifyBadge from "../Assets/Images/verified.svg";
 import SearchIcon from "../Assets/Images/search.svg";
+// Images import end
 
 export default function NewsPage() {
+  // Search drop down for mobile start
+  const [searchIsOpen, setSearchIsOpen] = useState(false);
+  const toggleSearch = () => setSearchIsOpen(!searchIsOpen);
+  // Search drop down for mobile end
+
+  // Link drop down for mobile start
+  const [linkIsOpen, setLinkIsOpen] = useState(false);
+  const toggleLink = () => setLinkIsOpen(!linkIsOpen);
+  // Link drop down for mobile end
+
+  const [showMenu, setShowMenu] = useState(false);
+  const dropdownRef = useRef(null);
+
+  const toggleMenu = () => setShowMenu(!showMenu);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      console.log("Click event fired outside dropdown");
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        // Click occurred outside the dropdown; close it
+        setShowMenu(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
+
+  // const toggleDropdown = () => {
+  //   setIsOpen(!isOpen);
+  // };
+
   return (
-    <div>
+    <div className="con">
       <header className="header">
         <img className="logo" src={Logo} alt="Logo" />
 
@@ -28,8 +74,14 @@ export default function NewsPage() {
             <input className="search" type="search" placeholder="Search" />
           </div>
 
-           <div className="not-div-1">
-            <img className="search-icon-mobile" src={SearchIcon} alt="search" />
+          <div className="not-div-1">
+            <img
+              onClick={toggleSearch}
+              className="search-icon-mobile"
+              src={SearchIcon}
+              alt="search"
+            />
+            {searchIsOpen && <SearchdropDown />}
             <div className="not-div">
               <p className="not">0</p>
             </div>
@@ -40,8 +92,19 @@ export default function NewsPage() {
             />
           </div>
 
-          <img className="profile" src={Profile} alt="Profile" />
-          <img className="drop-down" src={DropDown} alt="drop down" />
+          <img
+            onClick={toggleMenu}
+            className="profile"
+            src={Profile}
+            alt="Profile"
+          />
+          <img
+            onClick={toggleMenu}
+            className="drop-down"
+            src={DropDown}
+            alt="drop down"
+          />
+          {showMenu && <DropdownMenu />}
         </div>
       </header>
       <div className="header-links">
@@ -61,7 +124,13 @@ export default function NewsPage() {
         <a href="/contact" className="header-links-mobile">
           Artificial intelligence
         </a>
-        <img className="drop-down-mobile" src={DropDown} alt="drop down" />
+        <img
+          onClick={toggleLink}
+          className="drop-down-mobile"
+          src={DropDown}
+          alt="drop down"
+        />
+        {linkIsOpen && <LinksdropDown />}
         <a href="/contact" className="header-links-desktop">
           Software
         </a>
