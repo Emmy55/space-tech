@@ -28,7 +28,7 @@ export default function NewsPage() {
             <input className="search" type="search" placeholder="Search" />
           </div>
 
-          <div className="not-div-1">
+           <div className="not-div-1">
             <img className="search-icon-mobile" src={SearchIcon} alt="search" />
             <div className="not-div">
               <p className="not">0</p>
