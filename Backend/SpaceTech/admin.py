@@ -2,7 +2,10 @@ from django.contrib import admin
 from .models import SpaceTech
 # Register your models here.
 
+
+
 class SpaceTechAdmin(admin.ModelAdmin):
+    list_display = ('title', 'des')
     list_display = ('title', 'des')
 
 

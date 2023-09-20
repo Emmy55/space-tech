@@ -1,12 +1,12 @@
 import React from "react";
-import "./landingPage.css";
-
+import "./LandingPage.css";
+import APISerive from './APIService'
 import Background from "../Assets/background-img.svg";
 import Logo from "../Assets/Logo.png";
 import Thinker from "../Assets/thinking.png";
 import Team from "../Assets/team.png";
 import BlogOne from "../Assets/blog_1.png";
-import BlogTwo from "../Assets/blog_2.png";
+// import BlogTwo from "../Assets/blog_2.png";
 import ProfilePics from "../Assets/profilepics.png";
 import RecieveEmail from "../Assets/subscribe.png";
 import Facebook from "../Assets/Facebook.png";
