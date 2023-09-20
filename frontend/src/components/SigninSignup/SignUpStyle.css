@@ -107,6 +107,7 @@
     text-decoration: none;
     color: #3498DB;
     margin-left: 7px;
+    margin-top: 0px;
     font-size: 1rem;
   }
   
@@ -135,6 +136,9 @@
     }
     .welcome-container-signup {
       margin-bottom: 20px;
+    }
+    .big-header-signup {
+      font-size: 1.9rem;
     }
     .small-header-signup {
       font-size: 0.875rem;

@@ -14,34 +14,48 @@ export default function DropdownMenu() {
       <div className="dropdown-box-1">
         <div className="item2">
           <img className="item-img" src={Write} alt="Write Icon" />
-          <a href="#">Write</a>
+          <a className="drop-down-link" href="#">
+            Write
+          </a>
         </div>
         <div className="item2">
           <img className="item-img" src={ProfileIcon} alt="Profile Icon" />
-          <a href="#">Profile</a>
+          <a className="drop-down-link" href="#">
+            Profile
+          </a>
         </div>
         <div className="item2">
           <img className="item-img" src={Publish} alt="Published Icon" />
-          <a href="#">Published</a>
+          <a className="drop-down-link" href="#">
+            Published
+          </a>
         </div>
       </div>
       {/*  */}
       <div className="dropdown-box-2">
         <div className="item2">
           <img className="item-img" src={Settings} alt="Settings Icon" />
-          <a href="#">Settings</a>
+          <a className="drop-down-link" href="#">
+            Settings
+          </a>
         </div>
         <div className="item2">
           <img className="item-img" src={Help} alt="Help Icon" />
-          <a href="#">Help</a>
+          <a className="drop-down-link" href="#">
+            Help
+          </a>
         </div>
         <div className="item2">
           <img className="item-img" src={AboutUs} alt="AboutUs Icon" />
-          <a href="#">About Us</a>
+          <a className="drop-down-link" href="#">
+            About Us
+          </a>
         </div>
-        <a className="sign-out" href="">
-          Sign out
-        </a>
+        <div className="sign-out-div">
+          <a className="sign-out-l" href="">
+            Sign out
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -2,20 +2,22 @@
             margin: 0;
             padding: 0;
         }
-        html {
+        /* html {
             scroll-behavior: smooth;
-        }
+        } */
         .hero {
             overflow: hidden;
             /* background-color: red; */
             /* height: 800px; */
 
         }
-        .header {
+        .header-landing {
             /* background-color: red; */
+            /* display: flex; */
+            /* flex-direction: row; */
             height: 69px;
             align-items: center;
-            overflow: hidden;
+            /* overflow: hidden; */
         }
 
         .logo {
@@ -32,11 +34,20 @@
             color: white;
             cursor: pointer;
         }
-        .nav-links button {
+        .nav-links .signInBtn {
             background-color: white;
             border: 1px solid #3498DB;
             border-radius: 20px;
-            color: #3498DB;
+            /* color: #3498DB; */
+            height: 50px;
+            font-weight: bolder;
+            width: 10%;
+        }
+        .getBtn {
+            color: #000;
+            /* background-color: #3498DB; */
+            /* border: 1px solid #3498DB; */
+            border-radius: 20px;
             height: 50px;
             font-weight: bolder;
             width: 10%;
@@ -49,19 +60,17 @@
             overflow: hidden;
             position: relative;
         }
-        .nav-links a {
+        /* .nav-links a {
             text-decoration: none;
             color: #3498DB;
             margin-right: 20px;
             font-weight: bold;
-        }
+        } */
         .content-container {
             
             /* padding: 100px 0; */
             /* margin-top: 20px; */
             color:white;
-            
-            
         }
         .back-img {
             height: 80%;

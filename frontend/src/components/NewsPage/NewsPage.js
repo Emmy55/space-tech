@@ -3,6 +3,7 @@ import React, { useState, useRef, useEffect } from "react";
 import DropdownMenu from "./DropdownMenu";
 import LinksdropDown from "./LinksdropDown";
 import SearchdropDown from "./SearchdropDown";
+import NewsHeader from "../NewsHeader/NewsHeader";
 // Components import end
 
 // CSS import start
@@ -60,8 +61,10 @@ export default function NewsPage() {
   // };
 
   return (
-    <div className="con">
-      <header className="header">
+    <main>
+      <NewsHeader />
+      <div className="con">
+        {/* <header className="header">
         <img className="logo" src={Logo} alt="Logo" />
 
         <div className="header-right">
@@ -106,309 +109,327 @@ export default function NewsPage() {
           />
           {showMenu && <DropdownMenu />}
         </div>
-      </header>
-      <div className="header-links">
-        <a
-          style={{ color: "#3498DB" }}
-          href="/news"
-          className="header-links-mobile"
-        >
-          For you
-        </a>
-        <a href="/events" className="header-links-mobile">
-          Following
-        </a>
-        <a href="/projects" className="header-links-mobile">
-          Africa
-        </a>
-        <a href="/contact" className="header-links-mobile">
-          Artificial intelligence
-        </a>
-        <img
-          onClick={toggleLink}
-          className="drop-down-mobile"
-          src={DropDown}
-          alt="drop down"
-        />
-        {linkIsOpen && <LinksdropDown />}
-        <a href="/contact" className="header-links-desktop">
-          Software
-        </a>
-        <a href="/contact" className="header-links-desktop">
-          Robotics
-        </a>
-        <a href="/contact" className="header-links-desktop">
-          Space Tech
-        </a>
-        <a href="/contact" className="header-links-desktop">
-          Programming
-        </a>
-        <a href="/contact" className="header-links-desktop">
-          Virtual reality
-        </a>
-        <a href="/contact" className="header-links-desktop">
-          Python
-        </a>
+      </header> */}
+        <div className="header-links">
+          <a
+            style={{ color: "#3498DB" }}
+            href="/news"
+            className="header-links-mobile"
+          >
+            For you
+          </a>
+          <a href="/events" className="header-links-mobile">
+            Following
+          </a>
+          <a href="/projects" className="header-links-mobile">
+            Africa
+          </a>
+          <a href="/contact" className="header-links-mobile">
+            Artificial intelligence
+          </a>
+          <img
+            onClick={toggleLink}
+            className="drop-down-mobile"
+            src={DropDown}
+            alt="drop down"
+          />
+          {linkIsOpen && <LinksdropDown />}
+          <a href="/contact" className="header-links-desktop">
+            Software
+          </a>
+          <a href="/contact" className="header-links-desktop">
+            Robotics
+          </a>
+          <a href="/contact" className="header-links-desktop">
+            Space Tech
+          </a>
+          <a href="/contact" className="header-links-desktop">
+            Programming
+          </a>
+          <a href="/contact" className="header-links-desktop">
+            Virtual reality
+          </a>
+          <a href="/contact" className="header-links-desktop">
+            Python
+          </a>
+        </div>
+
+        <main className="main">
+          <div className="main-left">
+            <p className="for-you">For you</p>
+            <div className="news-1">
+              <div className="news-1-img">
+                <img className="news-pic" src={News1} alt="News Pic" />
+              </div>
+              <div className="news-1-text">
+                <div className="news-1-text-top">
+                  <a href="">
+                    <img
+                      className="profile-news"
+                      src={ProfileNews}
+                      alt="Profile"
+                    />
+                  </a>
+                  <p className="sarah">Sarah | September 11</p>
+                  <p className="follow">following</p>
+                </div>
+                <a href="">
+                  <h3 className="news-header">
+                    Market intelligence firm Sensor Tower conducts layoffs,
+                    several execs out
+                  </h3>
+                </a>
+                <p className="news-text">
+                  Sensor Tower, a prominent market intelligence firm for the app
+                  economy, this week laid off a notable portion of its
+                  workforce, estimated at around 40 people out of the 270+ at
+                  the company, according to LinkedIn’s headcount. The layoffs
+                  included C-suite executives, TechCrunch has learned from
+                  multiple sources, including the...
+                </p>
+                <div className="news-1-text-top-mobile">
+                  <a href="">
+                    <img
+                      className="profile-news"
+                      src={ProfileNews}
+                      alt="Profile"
+                    />
+                  </a>
+                  <p className="sarah">Sarah | September 11</p>
+                </div>
+                <div className="news-1-text-bottom">
+                  <p>5 min read</p>
+                </div>
+              </div>
+            </div>
+            {/* News 2 start */}
+            <div className="news-1">
+              <div className="news-1-img">
+                <img className="news-pic" src={News1} alt="News Pic" />
+              </div>
+              <div className="news-1-text">
+                <div className="news-1-text-top">
+                  <a href="">
+                    <img
+                      className="profile-news"
+                      src={ProfileNews}
+                      alt="Profile"
+                    />
+                  </a>
+                  <p className="sarah">Sarah | September 11</p>
+                  <p className="follow">following</p>
+                </div>
+                <a href="">
+                  <h3 className="news-header">
+                    Market intelligence firm Sensor Tower conducts layoffs,
+                    several execs out
+                  </h3>
+                </a>
+                <p className="news-text">
+                  Sensor Tower, a prominent market intelligence firm for the app
+                  economy, this week laid off a notable portion of its
+                  workforce, estimated at around 40 people out of the 270+ at
+                  the company, according to LinkedIn’s headcount. The layoffs
+                  included C-suite executives, TechCrunch has learned from
+                  multiple sources, including the...
+                </p>
+                <div className="news-1-text-top-mobile">
+                  <a href="">
+                    <img
+                      className="profile-news"
+                      src={ProfileNews}
+                      alt="Profile"
+                    />
+                  </a>
+                  <p className="sarah">Sarah | September 11</p>
+                </div>
+                <div className="news-1-text-bottom">
+                  <p>5 min read</p>
+                </div>
+              </div>
+            </div>
+            {/* News 2 End */}
+            {/* News 3 start */}
+            <div className="news-1">
+              <div className="news-1-img">
+                <img className="news-pic" src={News1} alt="News Pic" />
+              </div>
+              <div className="news-1-text">
+                <div className="news-1-text-top">
+                  <a href="">
+                    <img
+                      className="profile-news"
+                      src={ProfileNews}
+                      alt="Profile"
+                    />
+                  </a>
+                  <p className="sarah">Sarah | September 11</p>
+                  <p className="follow">following</p>
+                </div>
+                <a href="">
+                  <h3 className="news-header">
+                    Market intelligence firm Sensor Tower conducts layoffs,
+                    several execs out
+                  </h3>
+                </a>
+                <p className="news-text">
+                  Sensor Tower, a prominent market intelligence firm for the app
+                  economy, this week laid off a notable portion of its
+                  workforce, estimated at around 40 people out of the 270+ at
+                  the company, according to LinkedIn’s headcount. The layoffs
+                  included C-suite executives, TechCrunch has learned from
+                  multiple sources, including the...
+                </p>
+                <div className="news-1-text-top-mobile">
+                  <a href="">
+                    <img
+                      className="profile-news"
+                      src={ProfileNews}
+                      alt="Profile"
+                    />
+                  </a>
+                  <p className="sarah">Sarah | September 11</p>
+                </div>
+                <div className="news-1-text-bottom">
+                  <p>5 min read</p>
+                </div>
+              </div>
+            </div>
+            {/* News 3 End */}
+          </div>
+
+          <div className="main-right">
+            <div className="who-to-follow-div">
+              <p>Who to follow</p>
+              <div className="person-1">
+                <img
+                  className="profile-follow"
+                  src={ProfileFollow}
+                  alt="Profile"
+                />
+                <div className="person-1-text-div">
+                  <div className="name-div">
+                    <a href="">
+                      <p className="person-1-name">Chinaza Sunday</p>
+                    </a>
+                    <img className="badge" src={VerifyBadge} alt="Badge" />
+                  </div>
+                  <p className="person-1-info">
+                    Frontend developer, fashion designer, Technical...
+                  </p>
+                </div>
+                <p className="person-1-follow">Follow</p>
+              </div>
+              {/* Person 2 start */}
+              <div className="person-1">
+                <img
+                  className="profile-follow"
+                  src={ProfileFollow}
+                  alt="Profile"
+                />
+                <div className="person-1-text-div">
+                  <div className="name-div">
+                    <a href="">
+                      <p className="person-1-name">Chinaza Sunday</p>
+                    </a>
+                    <img className="badge" src={VerifyBadge} alt="Badge" />
+                  </div>
+                  <p className="person-1-info">
+                    Frontend developer, fashion designer, Technical...
+                  </p>
+                </div>
+                <p className="person-1-follow">Follow</p>
+              </div>
+              {/* Person 2 end */}
+              {/* Person 3 start */}
+              <div className="person-1">
+                <img
+                  className="profile-follow"
+                  src={ProfileFollow}
+                  alt="Profile"
+                />
+                <div className="person-1-text-div">
+                  <div className="name-div">
+                    <a href="">
+                      <p className="person-1-name">Chinaza Sunday</p>
+                    </a>
+                    <img className="badge" src={VerifyBadge} alt="Badge" />
+                  </div>
+                  <p className="person-1-info">
+                    Frontend developer, fashion designer, Technical...
+                  </p>
+                </div>
+                <p className="person-1-follow">Follow</p>
+              </div>
+              {/* Person 3 end */}
+              {/* Person 4 start */}
+              <div className="person-1">
+                <img
+                  className="profile-follow"
+                  src={ProfileFollow}
+                  alt="Profile"
+                />
+                <div className="person-1-text-div">
+                  <div className="name-div">
+                    <a href="">
+                      <p className="person-1-name">Chinaza Sunday</p>
+                    </a>
+                    <img className="badge" src={VerifyBadge} alt="Badge" />
+                  </div>
+                  <p className="person-1-info">
+                    Frontend developer, fashion designer, Technical...
+                  </p>
+                </div>
+                <p className="person-1-follow">Follow</p>
+              </div>
+              {/* Person 3 end */}
+
+              <a href="" className="see-more-suggestions">
+                See more suggestions
+              </a>
+            </div>
+            <div className="hot-topics-div">
+              <p className="hot">Hot Topics!</p>
+
+              <div className="hot-topics">
+                <div className="hot-topics-profile">
+                  <a href="" className="hot-topics-profile-link">
+                    <img
+                      className="hot-topics-profile"
+                      src={ProfileTopics}
+                      alt="Profile"
+                    />
+
+                    <p className="hot-topics-name">Sarah</p>
+                  </a>
+                </div>
+                <a href="">
+                  <p className="hot-topics-text">
+                    Market intelligence firm Sensor Tower conducts layoffs,
+                    several execs out
+                  </p>
+                </a>
+              </div>
+
+              <a href="" className="see-more-suggestions">
+                See more
+              </a>
+            </div>
+
+            <div className="info-div">
+              <a className="info-div-link" href="#">
+                Team
+              </a>
+              <a className="info-div-link" href="#">
+                About Us
+              </a>
+              <a className="info-div-link" href="#">
+                Help
+              </a>
+            </div>
+          </div>
+        </main>
       </div>
-
-      <main className="main">
-        <div className="main-left">
-          <p className="for-you">For you</p>
-          <div className="news-1">
-            <div className="news-1-img">
-              <img className="news-pic" src={News1} alt="News Pic" />
-            </div>
-            <div className="news-1-text">
-              <div className="news-1-text-top">
-                <img className="profile-news" src={ProfileNews} alt="Profile" />
-                <p className="sarah">Sarah | September 11</p>
-                <p className="follow">following</p>
-              </div>
-              <h3 className="news-header">
-                Market intelligence firm Sensor Tower conducts layoffs, several
-                execs out
-              </h3>
-              <p className="news-text">
-                Sensor Tower, a prominent market intelligence firm for the app
-                economy, this week laid off a notable portion of its workforce,
-                estimated at around 40 people out of the 270+ at the company,
-                according to LinkedIn’s headcount. The layoffs included C-suite
-                executives, TechCrunch has learned from multiple sources,
-                including the...
-              </p>
-              <div className="news-1-text-top-mobile">
-                <img
-                  className="profile-news-mobile"
-                  src={ProfileNews}
-                  alt="Profile"
-                />
-                <p className="sarah">Sarah | September 11</p>
-              </div>
-              <div className="news-1-text-bottom">
-                <p>5 min read</p>
-              </div>
-            </div>
-          </div>
-          {/* News 2 start */}
-          <div className="news-1">
-            <div className="news-1-img">
-              <img className="news-pic" src={News1} alt="News Pic" />
-            </div>
-            <div className="news-1-text">
-              <div className="news-1-text-top">
-                <img className="profile-news" src={ProfileNews} alt="Profile" />
-                <p className="sarah">Sarah | September 11</p>
-                <p className="follow">following</p>
-              </div>
-              <h3 className="news-header">
-                Market intelligence firm Sensor Tower conducts layoffs, several
-                execs out
-              </h3>
-              <p className="news-text">
-                Sensor Tower, a prominent market intelligence firm for the app
-                economy, this week laid off a notable portion of its workforce,
-                estimated at around 40 people out of the 270+ at the company,
-                according to LinkedIn’s headcount. The layoffs included C-suite
-                executives, TechCrunch has learned from multiple sources,
-                including the...
-              </p>
-              <div className="news-1-text-top-mobile">
-                <img
-                  className="profile-news-mobile"
-                  src={ProfileNews}
-                  alt="Profile"
-                />
-                <p className="sarah">Sarah | September 11</p>
-              </div>
-              <div className="news-1-text-bottom">
-                <p>5 min read</p>
-              </div>
-            </div>
-          </div>
-          {/* News 2 End */}
-          {/* News 3 start */}
-          <div className="news-1">
-            <div className="news-1-img">
-              <img className="news-pic" src={News1} alt="News Pic" />
-            </div>
-            <div className="news-1-text">
-              <div className="news-1-text-top">
-                <img className="profile-news" src={ProfileNews} alt="Profile" />
-                <p className="sarah">Sarah | September 11</p>
-                <p className="follow">following</p>
-              </div>
-              <h3 className="news-header">
-                Market intelligence firm Sensor Tower conducts layoffs, several
-                execs out
-              </h3>
-              <p className="news-text">
-                Sensor Tower, a prominent market intelligence firm for the app
-                economy, this week laid off a notable portion of its workforce,
-                estimated at around 40 people out of the 270+ at the company,
-                according to LinkedIn’s headcount. The layoffs included C-suite
-                executives, TechCrunch has learned from multiple sources,
-                including the...
-              </p>
-              <div className="news-1-text-top-mobile">
-                <img
-                  className="profile-news-mobile"
-                  src={ProfileNews}
-                  alt="Profile"
-                />
-                <p className="sarah">Sarah | September 11</p>
-              </div>
-              <div className="news-1-text-bottom">
-                <p>5 min read</p>
-              </div>
-            </div>
-          </div>
-          {/* News 3 End */}
-        </div>
-
-        <div className="main-right">
-          <div className="who-to-follow-div">
-            <p>Who to follow</p>
-            <div className="person-1">
-              <img
-                className="profile-follow"
-                src={ProfileFollow}
-                alt="Profile"
-              />
-              <div className="person-1-text-div">
-                <div className="name-div">
-                  <p className="person-1-name">Chinaza Sunday</p>
-                  <img className="badge" src={VerifyBadge} alt="Badge" />
-                </div>
-                <p className="person-1-info">
-                  Frontend developer, fashion designer, Technical...
-                </p>
-              </div>
-              <p className="person-1-follow">Follow</p>
-            </div>
-            {/* Person 2 start */}
-            <div className="person-1">
-              <img
-                className="profile-follow"
-                src={ProfileFollow}
-                alt="Profile"
-              />
-              <div className="person-1-text-div">
-                <div className="name-div">
-                  <p className="person-1-name">Chinaza Sunday</p>
-                  <img className="badge" src={VerifyBadge} alt="Badge" />
-                </div>
-                <p className="person-1-info">
-                  Frontend developer, fashion designer, Technical...
-                </p>
-              </div>
-              <p className="person-1-follow">Follow</p>
-            </div>
-            {/* Person 2 end */}
-            {/* Person 3 start */}
-            <div className="person-1">
-              <img
-                className="profile-follow"
-                src={ProfileFollow}
-                alt="Profile"
-              />
-              <div className="person-1-text-div">
-                <div className="name-div">
-                  <p className="person-1-name">Chinaza Sunday</p>
-                  <img className="badge" src={VerifyBadge} alt="Badge" />
-                </div>
-                <p className="person-1-info">
-                  Frontend developer, fashion designer, Technical...
-                </p>
-              </div>
-              <p className="person-1-follow">Follow</p>
-            </div>
-            {/* Person 3 end */}
-            {/* Person 4 start */}
-            <div className="person-1">
-              <img
-                className="profile-follow"
-                src={ProfileFollow}
-                alt="Profile"
-              />
-              <div className="person-1-text-div">
-                <div className="name-div">
-                  <p className="person-1-name">Chinaza Sunday</p>
-                  <img className="badge" src={VerifyBadge} alt="Badge" />
-                </div>
-                <p className="person-1-info">
-                  Frontend developer, fashion designer, Technical...
-                </p>
-              </div>
-              <p className="person-1-follow">Follow</p>
-            </div>
-            {/* Person 3 end */}
-
-            <a href="" className="see-more-suggestions">
-              See more suggestions
-            </a>
-          </div>
-          <div className="hot-topics-div">
-            <p className="hot">Hot Topics!</p>
-
-            <div className="hot-topics">
-              <div className="hot-topics-profile">
-                <img
-                  className="hot-topics-profile"
-                  src={ProfileTopics}
-                  alt="Profile"
-                />
-                <p className="hot-topics-name">Sarah</p>
-              </div>
-              <p className="hot-topics-text">
-                Market intelligence firm Sensor Tower conducts layoffs, several
-                execs out
-              </p>
-            </div>
-            {/* Hot topics 2 start */}
-            <div className="hot-topics">
-              <div className="hot-topics-profile">
-                <img
-                  className="hot-topics-profile"
-                  src={ProfileTopics}
-                  alt="Profile"
-                />
-                <p className="hot-topics-name">Sarah</p>
-              </div>
-              <p className="hot-topics-text">
-                Market intelligence firm Sensor Tower conducts layoffs, several
-                execs out
-              </p>
-            </div>
-            {/* Hot topics 3 end */}
-            {/* Hot topics 2 start */}
-            <div className="hot-topics">
-              <div className="hot-topics-profile">
-                <img
-                  className="hot-topics-profile"
-                  src={ProfileTopics}
-                  alt="Profile"
-                />
-                <p className="hot-topics-name">Sarah</p>
-              </div>
-              <p className="hot-topics-text">
-                Market intelligence firm Sensor Tower conducts layoffs, several
-                execs out
-              </p>
-            </div>
-            {/* Hot topics 3 end */}
-
-            <a href="" className="see-more-suggestions">
-              See more
-            </a>
-          </div>
-
-          <div className="info-div">
-            <a href="#">Team</a>
-            <a href="#">About Us</a>
-            <a href="#">Help</a>
-          </div>
-        </div>
-      </main>
-    </div>
+    </main>
   );
 }

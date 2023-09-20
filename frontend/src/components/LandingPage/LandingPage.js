@@ -13,20 +13,25 @@ import Facebook from "../Assets/Facebook.png";
 import LinkedIn from "../Assets/LinkedIn.png";
 import Instagram from "../Assets/Instagram.png";
 import ArrowUp from "../Assets/arrowup.png";
-import ArrowRight from  '../Assets/arrowRight.png';
+import ArrowRight from "../Assets/arrowRight.png";
 
 function LandingPage() {
   return (
     <div>
       <div className="hero" id="hero">
-        <div className="header">
+        <div className="header-landing">
           <a href="./">
             <img className="logo" src={Logo} alt="Logo" />
           </a>
           <div className="nav-links">
             <a href=".">Home</a>
             <a href=".">Contact</a>
-            <button>Sign In</button>
+            <a className="signInBtn" href="">
+              Sign In
+            </a>
+            <a className="getBtn" href="">
+              Get started
+            </a>
           </div>
         </div>
         <div className="content-container">
@@ -105,44 +110,60 @@ function LandingPage() {
         <div className="recentRight">
           <h3>TOP CATEGORIES</h3>
           <div className="topic">
-          <a href='.'><h6>Python</h6></a>
-          <a href='.'><h6>Space Tech</h6></a>
-          <a href='.'><h6>AI</h6></a>
-        <a href='.'><h6>Crypto</h6></a>
-        <a href='.'><h6>New Language</h6></a>
+            <a href=".">
+              <h6>Python</h6>
+            </a>
+            <a href=".">
+              <h6>Space Tech</h6>
+            </a>
+            <a href=".">
+              <h6>AI</h6>
+            </a>
+            <a href=".">
+              <h6>Crypto</h6>
+            </a>
+            <a href=".">
+              <h6>New Language</h6>
+            </a>
           </div>
           <a href=".">See more topics</a>
-          <h3 className='popular' >POPULAR CONTENT</h3>
-          <img src={ArrowRight}/>
-          <p className="eachitem">What is AI treats humans the way we treat animals?</p>
-          <img src={ArrowRight}/>
-          <p className="eachitem">What is AI treats humans the way we treat animals?</p>
-          <img src={ArrowRight}/>
-          <p className="eachitem">What is AI treats humans the way we treat animals?</p>
+          <h3 className="popular">POPULAR CONTENT</h3>
+          <img src={ArrowRight} />
+          <p className="eachitem">
+            What is AI treats humans the way we treat animals?
+          </p>
+          <img src={ArrowRight} />
+          <p className="eachitem">
+            What is AI treats humans the way we treat animals?
+          </p>
+          <img src={ArrowRight} />
+          <p className="eachitem">
+            What is AI treats humans the way we treat animals?
+          </p>
         </div>
       </div>
 
       <div className="footer">
-      <div className="higherFooter">
-        <a href="./">
-          <img className="logo1" src={Logo} alt="Logo" />
-        </a>
-        <div className="middle">
-          <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
-          <p>
-            To stay up-to-date with What’s happening in the TECH word, Enter
-            your email to stay up yo date.
-          </p>
-          <form>
-            <input className='email' type="text" placeholder="Email" />
-            <input className='submit' type="submit" placeholder="SUBSCRIBE" />
-          </form>
+        <div className="higherFooter">
+          <a href="./">
+            <img className="logo1" src={Logo} alt="Logo" />
+          </a>
+          <div className="middle">
+            <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
+            <p>
+              To stay up-to-date with What’s happening in the TECH word, Enter
+              your email to stay up yo date.
+            </p>
+            <form>
+              <input className="email" type="text" placeholder="Email" />
+              <input className="submit" type="submit" placeholder="SUBSCRIBE" />
+            </form>
+          </div>
+          <div className="right">
+            <img src={RecieveEmail} />
+          </div>
         </div>
-        <div className="right">
-          <img src={RecieveEmail} />
-        </div>
-      </div>
-        
+
         <div className="lowerFooter">
           <h3>SpaceTech</h3>
           <div className="about">
@@ -166,16 +187,22 @@ function LandingPage() {
               <p>Follow Us!</p>
             </b>
             <div className="follow">
-              <a href="https://facebook.com/" ><img src={Facebook} /></a>
-              <a href="https://instagram.com/" ><img src={Instagram} /></a>
-              <a href="https://linkedin.com/" ><img src={LinkedIn} /></a>
-              
-              
+              <a href="https://facebook.com/">
+                <img src={Facebook} />
+              </a>
+              <a href="https://instagram.com/">
+                <img src={Instagram} />
+              </a>
+              <a href="https://linkedin.com/">
+                <img src={LinkedIn} />
+              </a>
             </div>
-            <a className="arrowUp" href="#hero"><img src={ArrowUp} /></a>
+            <a className="arrowUp" href="#hero">
+              <img src={ArrowUp} />
+            </a>
           </div>
         </div>
-            <p className="copy">&copy; 2023-SpaceTech. All Rights Reserved.</p>
+        <p className="copy">&copy; 2023-SpaceTech. All Rights Reserved.</p>
       </div>
     </div>
   );

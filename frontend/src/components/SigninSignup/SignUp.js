@@ -75,7 +75,7 @@ function SignUp() {
               </a>
             </div>
             <p className="signup-link-signup">
-              Already have an account??
+              Already have an account?
               <a className="sign-up-signup" href="#">
                 Sign In
               </a>
