@@ -1,6 +1,6 @@
 import React from "react";
-import "./LandingPage.css";
-import APISerive from './APIService'
+import "./landingPage.css";
+// import APISerive from "./APIService";
 import Background from "../Assets/background-img.svg";
 import Logo from "../Assets/Logo.png";
 import Thinker from "../Assets/thinking.png";
