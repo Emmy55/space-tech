@@ -1,118 +1,106 @@
-        * {
-            margin: 0;
-            padding: 0;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        .hero {
-            overflow: hidden;
-            /* background-color: red; */
-            /* height: 800px; */
-
-        }
-        .header {
-            /* background-color: red; */
-            height: 69px;
-            align-items: center;
-            overflow: hidden;
-        }
-
-        .logo {
-            /* font-size: 24px; */
-            width: 17%;
-            font-weight: bold;
-            margin-left: 3%;
-            margin-top: 11px;
-            
-        }
-        .nav-links button:hover {
-            transition: 1s;
-            background-color: #3498DB;
-            color: white;
-            cursor: pointer;
-        }
-        .nav-links button {
-            background-color: white;
-            border: 1px solid #3498DB;
-            border-radius: 20px;
-            color: #3498DB;
-            height: 50px;
-            font-weight: bolder;
-            width: 10%;
-        }
-        .nav-links {
-            left:65%;
-            /* width: 40%; */
-            font-size: 18px;
-            top: -80%;
-            overflow: hidden;
-            position: relative;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: #3498DB;
-            margin-right: 20px;
-            font-weight: bold;
-        }
-        .content-container {
-            
-            /* padding: 100px 0; */
-            /* margin-top: 20px; */
-            color:white;
-            
-            
-        }
-        .back-img {
-            height: 80%;
-            width: 100%;
-            background-repeat: none;
-        }
-        .content {
-            position: relative;
-            top: -490px;
-            margin-left: 3%;
-            /* color: white; */
-            /* text-align: left; */
-        }
-        .content h1 {
-            font-size: 76px;
-            margin-bottom: 20px;
-        }
-        .content h2{
-            font-size: 47px;
-            margin-bottom: 20px;
-        }
-        .content p{
-            font-size: 21px;
-            line-height: 43px;
-            font-style: italic;
-            width: 27%;
-            margin-bottom: 20px;
-        }
-        
-        .content button {
-            border-radius: 20px;
-            width: 15%;
-            cursor: pointer;
-            height: 50px;
-            border: none;
-            font-size: 18px;
-            color: white;
-
-    background: linear-gradient(#4CAF50, #64C1FF);
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
 }
+html {
+    scroll-behavior: smooth;
+}
+.header-landing {
+    padding: 0 2%;
+    height: 110px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.home {
+    margin-right: 20px;
+    color: #3498DB;
+    font-size: 1.25rem;
+}
+.contact {
+    margin-right: 20px;
+    color: #3498DB;
+    font-size: 1.25rem;
+}
+
+.navLinks {
+    /* display: flex; */
+    gap: 20px;
+}
+.signInBtn {
+    background-color: #fff;
+    color: #3498DB;
+    border: 1px solid #3498DB;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-weight: bold;
+    margin-right: 20px;
+}
+.getBtn {
+    background-color: #3498DB;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px 10px 20px;
+    font-size: 1.25rem;
+    cursor: pointer;
+    font-weight: bold;
+}
+.backImg {
+    width: 100%;
+}
+.content-container {
+    position: relative;
+}
+.content {
+    position: absolute;
+    top: 13%;
+    left: 0%;
+    padding: 0 2%;
+}
+.contentHeader {
+    font-size: 6rem;
+    font-weight: bold;
+    color: #fff;
+    /* margin-bottom: 20px; */
+}
+.contentSmallHeader {
+    font-size: 4rem;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 10px;
+    /* margin-bottom: 20px; */
+}
+.contenBodytHeader {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #fff;
+    margin-top: 10px;
+    margin-bottom: 30px;
+}
+.heroBtn {
+    border-radius: 10px;
+    padding: 10px 40px 10px 40px;
+    border: none;
+    font-size: 1.125rem;
+    color: white;
+    background: linear-gradient(#4CAF50, #64C1FF);
+    /* margin-bottom: 30px; */
+}
+/* Section 2 */
 .next {
     display: flex;
-    position: relative;
-    top: -350px;
-    margin-left: 3%;
-    overflow: hidden;
+    /* position: relative; */
+    padding: 0 2%;
+    margin-top: 50px;
 }
 .lefttext {
     display: flex;
 }
-.lefttext .txt h3, .righttext .txt h3 {
+.lefttext .txt .txtHeader, .righttext .txt .txtHeader {
     margin-bottom: 10px;
 }
 .lefttext .txt, .righttext .txt {
@@ -123,50 +111,44 @@
 }
 .recent {
     position: relative;
-    display: flex;
-    top: -350px;
-   
-}
-.recentLeft a{
-    text-decoration: none;
-
+    display: flex;  
 }
 .mainLeft {
     margin-left: 4%;
     margin-bottom: 30px;
 }
-.recent h3 {
+.recent .recentLeftHeader {
     color: #27AE60;
-    font-size: 24px;
-}
-.recent .recentLeft h3 {
+    font-size: 1.5rem;
     margin-bottom: 70px;
     margin-left: 4%;
-
+    margin-top: 10px;
 }
-.recentLeft .mainLeft .text h4  {
-    font-size: 27px;
+
+.recentLeft .mainLeft .text .newsHeader  {
+    font-size: 1.6875rem;
+    margin-bottom: 10px;
 }
 .recentLeft .mainLeft .text {
     position: relative;
     left: 40%;
     color: black;
     width: 55%;
-    top: -190px;
+    top: -210px;
 }
 .recentLeft {
-    
     width: 70%;
     background-color: #3498db5f;   
     border-radius: 0px 10px 10px 0px;
-}
-.recentLeft h3 {
-    margin-top: 10px;
+    margin-bottom: 90px;
 }
 .details {
     display: flex;
 }
-.details h6 {
+.userName{
+    margin-left: 6px;
+}
+.details .datePosted {
    top: 2px; 
    left: 3px;
    position: relative;
@@ -180,41 +162,40 @@
 }
 .eachBlog {
     position: relative;
-    /* top: -120px; */
     width: 99%;
     height: 250px;
     border-bottom: 1px solid black;
     border-radius: 0px 0px 10px 10px ;
 }
+.newsBody {
+    margin-top: 10px;
+}
 .recentRight {
     margin-left: 50px;
+    /* width: 420px; */
+    width: 30%;
 }
-.recentRight h3 {
+.recentRight .recentRightHeader {
     margin-bottom: 20px;
 }
 .topic {
     display: flex;
     width: 90%;
-    /* height: 90px; */
-    /* background-color: red; */
     position: relative;
     left: -3%;
     flex-wrap: wrap;
 }
-.recentRight a {
-    position: relative;
-    top: 2%;
-    text-decoration: none;
+.recentRightTopic5 {
+    margin-bottom: 10px;
 }
-.topic h6:hover {
+.topic .recentRightTopic:hover {
     transition: 1s;
     background-color: white;
     color: #3498DB;
     border: 1px solid #4CAF50;
     cursor: pointer;
 }
-.topic h6 {
-    /* width: 80%; */
+.topic .recentRightTopic {
     font-size: 16px;
     border-radius: 10px;
     background-color: #45A3E2;
@@ -226,19 +207,18 @@
     white-space: nowrap;
 }
 .popular {
-    position: relative;
-    top: 20px;
+    margin: 20px 0 5px 0;
 }
 .eachitem {
    margin-top: -15px;
    margin-left: 50px;
 }
-.recentRight img {
+.recentRight .pointArrow {
     position: relative;
     top: 15px;
 }
+/*  */
 .lowerFooter {
-    /* height: 300px; */
     background-color: black;
 }
 .footer {
@@ -248,51 +228,46 @@
 }
 .higherFooter {
     position: relative;
-    /* background: linear-gradient(#27ae5fb8, #64C1FF); */
-    /* top: -10px; */
-    /* background: linear-gradient(141.38deg, #64C1FF 31.1%, rgba(39, 174, 96, 0.34) 94.87%); */
-
     background: linear-gradient(141.38deg, #64C1FF 31.1%, rgba(39, 174, 95, 0.85) 94.87%);
-
     height: 275px;
 }
-.footer .right img {
+.footer .right .righSubImg {
     float: right;
     position: relative;
-    top: -250px;
+    top: -191px;
 }
 .middle {
     position: relative;
     left: 27%;
     width: 32%;
 }
-.middle h3 {
+.middle .middleSub {
     font-size: 29px;
     color: #3498DB;
     white-space: nowrap;
 }
-.middle h3, .middle p {
+.middle .middleSub, .middle .middleBody {
     position: relative;
     top: -20px;
 }
-.middle p {
+.middle .middleBody {
     line-height: 22px;
     position: relative;
     top: 1px;
 }
-.email {
+.emailSub {
     border: none;
-    width: 80%;
-    height: 29px;
+    width: 60%;
+    height: 39px;
     position: relative;
     top: 20px;
-    /* left: 406px; */
-    border-radius: 8px;
+    border-radius: 8px 0px 0px 8px;
+    padding-left: 5px;
 }
-.email:focus {
+.emailSub:focus {
     outline: none;
 }
-.submit {
+.submitSub {
     border: none;
     cursor: pointer;
     width: 20%;
@@ -300,36 +275,30 @@
     border-radius: 0px 8px 8px 0px;
     float: right;
     position: relative;
-    left: -50px;
+    left: -90px;
     color: white;
     background-color: #3498DB;
-    top: -29px;
+    top: 20px;
 }
 .logo1 {
-    /* margin: 40px; */
     position:relative ;
     top: 30px;
     left: 3%;
 }
-.lowerFooter h3 {
-    /* color: linear-gradient(141.38deg, #64C1FF 8.84%, #27AE60 94.87%); */
+.lowerFooter .lowerFooterHeader {
     color: white;
     font-size: 32px;
     margin-left: 3%;
     position: relative;
     top: 20px;
     color: #64C1FF ;
-    
-
-    
 }
 .lowerFooter {
     display: flex;
     background-color: black;
     justify-content: space-between;
-    /* width: 100%; */
 }
-.about a, .work a, .about b, .work b {
+.about .aboutLink, .work .aboutLink, .about .aboutBold, .work .aboutBold {
     display: block;
     line-height: 30px;
     position: relative;
@@ -337,11 +306,18 @@
     text-decoration: none;
     color: white;
 }
-.about a:hover, .work a:hover {
+.about .aboutLink:hover, .work .aboutLink:hover {
     transition: 1s;
     position: relative;
     left: 2px;
     color: #3498DB;
+}
+.FollowUs{
+    color: #fff;
+    margin-left: 110px;
+}
+.follow {
+    background: #000;
 }
 .social {
     position: relative;
@@ -349,8 +325,11 @@
     top: 40px;
 }
 .arrowUp {
+    /* position: static; */
     position: relative;
-    left: 120%;
+    bottom: -100px;
+    right: -150px;
+
 }
 .copy {
     color: white;

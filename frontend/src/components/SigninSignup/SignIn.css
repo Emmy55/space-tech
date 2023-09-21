@@ -91,12 +91,18 @@
 .line-mobile {
   display: none;
 }
-.social-icons
+.social-icons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+}
 .linkedin {
   padding: 0 20px;
 }
 .signup-link {
-  margin-top: 50px;
+  margin-top: 30px;
+  text-align: center;
 }
 .sign-up {
   text-decoration: none;

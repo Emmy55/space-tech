@@ -23,9 +23,13 @@ function LandingPage() {
           <a href="./">
             <img className="logo" src={Logo} alt="Logo" />
           </a>
-          <div className="nav-links">
-            <a href=".">Home</a>
-            <a href=".">Contact</a>
+          <div className="navLinks">
+            <a className="home" href=".">
+              Home
+            </a>
+            <a className="contact" href=".">
+              Contact
+            </a>
             <a className="signInBtn" href="">
               Sign In
             </a>
@@ -35,15 +39,17 @@ function LandingPage() {
           </div>
         </div>
         <div className="content-container">
-          <img className="back-img" src={Background} alt="bkg" />
+          <img className="backImg" src={Background} alt="bkg" />
           <div className="content">
-            <h1>Stay Up to Date</h1>
-            <h2>With technology</h2>
-            <p>
-              A place where you get updated about what's happening in the world
-              of technology.
+            <h1 className="contentHeader">Stay Up to Date</h1>
+            <h2 className="contentSmallHeader">With technology</h2>
+            <p className="contenBodytHeader">
+              A place where you get updated about <br /> what's happening in the
+              world of <br /> technology
             </p>
-            <button>Get Started</button>
+            <a href="" className="heroBtn">
+              Get Started
+            </a>
           </div>
         </div>
       </div>
@@ -52,7 +58,9 @@ function LandingPage() {
           <img src={Thinker} alt="thinker" />
           <div className="lefttext">
             <div className="txt">
-              <h3>Stay In The Loop, Get the Tech Scoop!</h3>
+              <h3 className="txtHeader">
+                Stay In The Loop, Get the Tech Scoop!
+              </h3>
               <p>
                 Your go-to source for breaking tech news, trends, and updates
                 from the ever-evolving world of technology.
@@ -64,7 +72,9 @@ function LandingPage() {
           <img src={Team} alt="team" />
           <div className="righttext">
             <div className="txt">
-              <h3>Stay In The Know, Share the Tech Flow!</h3>
+              <h3 className="txtHeader">
+                Stay In The Know, Share the Tech Flow!
+              </h3>
               <p>
                 Stay informed about tech news and share your insights with
                 others, contributing to the tech world's knowledge.
@@ -75,22 +85,22 @@ function LandingPage() {
       </div>
       <div className="recent">
         <div className="recentLeft">
-          <h3>RECENTLY ADDED</h3>
+          <h3 className="recentLeftHeader">RECENTLY ADDED</h3>
           <div className="mainLeft">
             <div className="eachBlog">
               <a href=".">
                 <img src={BlogOne} />
                 <div className="text">
-                  <h4>
+                  <h4 className="newsHeader">
                     Market intelligence firm Sensor Tower conducts layoffs,
                     several execs out
                   </h4>
                   <div className="details">
                     <img src={ProfilePics} />
-                    <h5>Username |</h5>
-                    <h6>Date posted</h6>
+                    <h5 className="userName">Username |</h5>
+                    <h6 className="datePosted">Date posted</h6>
                   </div>
-                  <p>
+                  <p className="newsBody">
                     Sensor Tower, a prominent market intelligence firm for the
                     app economy, this week laid off a notable portion of its
                     workforce, estimated at around 40 people out of the 270+ at
@@ -108,35 +118,38 @@ function LandingPage() {
           </a>
         </div>
         <div className="recentRight">
-          <h3>TOP CATEGORIES</h3>
+          <h3 className="recentRightHeader">TOP CATEGORIES</h3>
           <div className="topic">
             <a href=".">
-              <h6>Python</h6>
+              <h6 className="recentRightTopic">Python</h6>
             </a>
             <a href=".">
-              <h6>Space Tech</h6>
+              <h6 className="recentRightTopic">Space Tech</h6>
             </a>
             <a href=".">
-              <h6>AI</h6>
+              <h6 className="recentRightTopic">AI</h6>
             </a>
             <a href=".">
-              <h6>Crypto</h6>
+              <h6 className="recentRightTopic">Crypto</h6>
             </a>
-            <a href=".">
-              <h6>New Language</h6>
+            <a className="recentRightTopic5" href=".">
+              <h6 className="recentRightTopic">New Language</h6>
             </a>
           </div>
-          <a href=".">See more topics</a>
+          <a className="recentRightSeeMore" href=".">
+            See more topics
+          </a>
           <h3 className="popular">POPULAR CONTENT</h3>
-          <img src={ArrowRight} />
+          <img className="pointArrow" src={ArrowRight} />
           <p className="eachitem">
             What is AI treats humans the way we treat animals?
           </p>
-          <img src={ArrowRight} />
+          <img className="pointArrow" src={ArrowRight} />
           <p className="eachitem">
-            What is AI treats humans the way we treat animals?
+            Diligence Africa wants to help African startups and investors make
+            smarter investment decisions
           </p>
-          <img src={ArrowRight} />
+          <img className="pointArrow" src={ArrowRight} />
           <p className="eachitem">
             What is AI treats humans the way we treat animals?
           </p>
@@ -149,42 +162,58 @@ function LandingPage() {
             <img className="logo1" src={Logo} alt="Logo" />
           </a>
           <div className="middle">
-            <h3>SUBSCRIBE TO OUR NEWSLETTER</h3>
-            <p>
+            <h3 className="middleSub">SUBSCRIBE TO OUR NEWSLETTER</h3>
+            <p className="middleBody">
               To stay up-to-date with What’s happening in the TECH word, Enter
               your email to stay up yo date.
             </p>
             <form>
-              <input className="email" type="text" placeholder="Email" />
-              <input className="submit" type="submit" placeholder="SUBSCRIBE" />
+              <input className="emailSub" type="text" placeholder="Email" />
+              <input
+                className="submitSub"
+                type="submit"
+                placeholder="SUBSCRIBE"
+              />
             </form>
           </div>
           <div className="right">
-            <img src={RecieveEmail} />
+            <img className="righSubImg" src={RecieveEmail} />
           </div>
         </div>
 
         <div className="lowerFooter">
-          <h3>SpaceTech</h3>
+          <h3 className="lowerFooterHeader">SpaceTech</h3>
           <div className="about">
-            <b>
+            <b className="aboutBold">
               <p>About</p>
             </b>
-            <a href=".">SpaceTech</a>
-            <a href=".">Contact Us</a>
-            <a href=".">Staff</a>
-            <a href=".">Site Map</a>
+            <a className="aboutLink" href=".">
+              SpaceTech
+            </a>
+            <a className="aboutLink" href=".">
+              Contact Us
+            </a>
+            <a className="aboutLink" href=".">
+              Staff
+            </a>
+            <a className="aboutLink" href=".">
+              Site Map
+            </a>
           </div>
           <div className="work">
-            <b>
+            <b className="aboutBold">
               <p>Work With Us</p>
             </b>
-            <a href=".">How to publish</a>
-            <a href=".">Set up profile</a>
+            <a className="aboutLink" href=".">
+              How to publish
+            </a>
+            <a className="aboutLink" href=".">
+              Set up profile
+            </a>
           </div>
           <div className="social">
-            <b>
-              <p>Follow Us!</p>
+            <b className="aboutBold">
+              <p className="FollowUs">Follow Us!</p>
             </b>
             <div className="follow">
               <a href="https://facebook.com/">

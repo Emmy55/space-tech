@@ -38,7 +38,9 @@ export default function NewsViewPage() {
             <div>
               <div className="author-div">
                 <p className="author">Sarah</p>
-                <span className="follow-author">Follow</span>
+                <a href="" className="follow-author">
+                  Follow
+                </a>
               </div>
               <p className="date">9:01 PM WAT-September 11, 2023</p>
             </div>
