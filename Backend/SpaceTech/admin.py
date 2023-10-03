@@ -5,8 +5,7 @@ from .models import SpaceTech
 
 
 class SpaceTechAdmin(admin.ModelAdmin):
-    list_display = ('title', 'des')
-    list_display = ('title', 'des')
+    list_display = ('title', 'description')
 
 
 admin.site.register(SpaceTech, SpaceTechAdmin)

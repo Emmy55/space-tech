@@ -9,5 +9,6 @@ router.register('users', UserViewSet)
 
 
 urlpatterns = [
-    path('api/', include(router.urls)),
+    path('model/', include(router.urls)),
+    path('api/spacetech/<slug:slug>/', UserViewSet.as_view({'get': 'retrieve'}), name='SPT'),
 ]

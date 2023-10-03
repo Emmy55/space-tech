@@ -59,8 +59,31 @@ MIDDLEWARE = [
 
 # REST_FRAMEWORK = {'DEFAULT_PERMISSION_CLASSES':['rest_framework.permission.AllowAny']}
 
-CORS_ORIGIN_ALLOW_ALL = True
 
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    # Add more domains as needed or use "*" to allow any origin
+]
+
+# Allow credentials (cookies, authorization headers, etc.)
+CORS_ALLOW_CREDENTIALS = True
+
+# Allow specific headers and methods
+CORS_ALLOW_HEADERS = [
+    'access-control-allow-origin',
+    'access-control-allow-credentials',
+    'content-type',
+    # Add more headers as needed
+]
+
+CORS_ALLOW_METHODS = [
+    'DELETE',
+    'GET',
+    'OPTIONS',
+    'PATCH',
+    'POST',
+    'PUT',
+]
 
 ROOT_URLCONF = 'Backend.urls'
 

@@ -11,7 +11,7 @@ function App() {
     <div className="App">
       <LandingPage />
       {/* <NewsHeader /> */}
-      {/* <NewsViewPage /> */}
+      <NewsViewPage />
       {/* <NewsPage /> */}
       {/* <SignIn /> */}
       {/* <SignUp /> */}

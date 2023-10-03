@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 // Components import start
 // import DropdownMenu from "../NewsPage/DropdownMenu";
 // import SearchdropDown from "../NewsPage/SearchdropDown";
@@ -21,15 +21,28 @@ import ArrowRight from "../Assets/arrowRight.png";
 import Laptop from "../Assets/Laptop.png";
 
 export default function NewsViewPage() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    axios.get('http://127.0.0.1:8000/api/model/spacetech/')  // Use the correct API endpoint
+      .then(response => {
+        setData(response.data);
+        console.log(response.data);
+      })
+      .catch(error => {
+        console.error('Error fetching data:', error);
+      });
+  }, []);
+ 
   return (
     <div>
       <NewsHeader />
       <div>
+          {data.map(item => (
         <div className="container">
           <div className="market">
             <h1 className="header-text">
-              Market intelligence firm Sensor Tower <br />
-              conducts layoffs, several execs out
+            {item.title}
             </h1>
           </div>
 
@@ -52,54 +65,9 @@ export default function NewsViewPage() {
 
           <div className="article-content">
             <p>
-              Sensor Tower, a prominent market intelligence firm for the app
-              economy, this week laid off a notable portion of its workforce,
-              estimated at around 40 people out of the 270+ at the company,
-              according to LinkedIn’s headcount. The layoffs included C-suite
-              executives, TechCrunch has learned from multiple sources,
-              including the CMO, CFO and chief product officer. Other teams
-              impacted include finance and nearly all of marketing, we’re
-              hearing. The company held an all-hands meeting to address the
-              changes, which may still be underway as part of a larger reorg of
-              Sensor Tower’s corporate structure. Sensor Tower confirmed the
-              layoffs, but not the particulars, noting it would issue a fuller
-              release next week. “Earlier this week, Sensor Tower’s management
-              team took necessary steps to reorganize and right-size our
-              business under a talented and experienced senior leadership team,”
-              said Melissa Sheer, a publicist for Sensor Tower, in an emailed
-              statement provided to TechCrunch. “We are excited about these
-              changes as we position the company for a balance of continued
-              growth and best-in-class profitability. We will provide more
-              details in the coming days,” she said. A popular provider of
-              third-party data and insights for app developers, brands,
-              marketers and publishers, Sensor Tower has grown its headcount
-              over the years following its $45 million investment in 2020 from
-              Riverwood Capital. The firm at the time cited 350 enterprise-level
-              customers, such as Morgan Stanley, Zynga and Tencent. But Sensor
-              Tower was still a small team then — just 75 employees — only a bit
-              larger than the number of employees laid off this week. Sensor
-              Tower grew again in 2021 with its acquisition of market
-              intelligence company Pathmatics, which allowed it to offer an
-              expanded set of digital and mobile advertising insights. The deal
-              included an undisclosed growth investment from Riverwood Capital
-              into Pathmatics. The company had then claimed it chose to raise
-              more funds to further grow its business with investments in
-              hiring, marketing and infrastructure, but noted it had been
-              profitable since its launch. Today, Sensor Tower’s website touts
-              its use by top brands, firms and marketers, like Dyson, L’Oréal,
-              Target, Johnson & Johnson, Welch’s, Petco, Chanel, Revolut, Getir,
-              Warner Bros., Hershey, Wieden + Kennedy, ByteDance, Activision
-              Blizzard, Allstate, Apple, Purina, Pepsico, Nike and more. Its
-              data is regularly cited by top publications, including The Wall
-              Street Journal, Fortune, CNBC, The New York Times, Bloomberg and
-              others, including TechCrunch. Unfortunately, 2023 has been a tough
-              year for layoffs, which have ranged from big names in tech like
-              Google, Amazon, Microsoft, Yahoo, Meta, Zoom, Roku, Spotify and
-              Shopify, to smaller startups across all sectors, including crypto,
-              SaaS, enterprise, consumer and more.
+            {item.description}
             </p>
 
-            {/* ... (rest of the article content) */}
           </div>
 
           <div className="comment-con">
@@ -136,6 +104,7 @@ export default function NewsViewPage() {
             <input className="submit-post" type="submit" value="Post comment" />
           </div>
         </div>
+      ))}
       </div>
     </div>
   );

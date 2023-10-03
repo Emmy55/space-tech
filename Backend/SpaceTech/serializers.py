@@ -9,7 +9,7 @@ from rest_framework.authtoken.views import Token
 class SpaceTechSerializer(serializers.ModelSerializer):
     class Meta:
         model = SpaceTech
-        fields = ['id','title','description']
+        fields = '__all__'
 
 
 class UserSerializer(serializers.ModelSerializer):

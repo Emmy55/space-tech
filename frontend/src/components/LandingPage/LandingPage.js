@@ -1,4 +1,6 @@
-import React from "react";
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import axios from 'axios';
 import "./landingPage.css";
 // import APISerive from "./APIService";
 import Background from "../Assets/background-img.svg";
@@ -14,8 +16,48 @@ import LinkedIn from "../Assets/LinkedIn.png";
 import Instagram from "../Assets/Instagram.png";
 import ArrowUp from "../Assets/arrowup.png";
 import ArrowRight from "../Assets/arrowRight.png";
+import { TEXT_LIMIT } from './constants';
+import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
 
-function LandingPage() {
+function LandingPage({ match }) {
+  const [data, setData] = useState(null);
+
+  useEffect(() => {
+    const fetchSpaceTech = async () => {
+      try {
+        const response = await axios.get(`/api/model/spacetech/${match.params.id}/`);
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching space tech:', error);
+      }
+    };
+
+    fetchSpaceTech();
+  }, [match.params.id]);
+
+  if (!data) {
+    return <p>Loading...</p>; // or handle loading state as appropriate
+  }
+
+  const spaceTechLink = generateSpaceTechLink(data);
+
+  return (
+    <div>
+      {spaceTechLink}
+      {/* Other content... */}
+    </div>
+  );
+}
+
+const generateSpaceTechLink = (spaceTech) => {
+  // Ensure spaceTech has an 'id' and 'title'
+  if (!spaceTech || !spaceTech.id || !spaceTech.title) {
+    console.error('Invalid spaceTech object');
+    return null;
+  }
+
+  
   return (
     <div>
       <div className="hero" id="hero">
@@ -87,30 +129,30 @@ function LandingPage() {
         <div className="recentLeft">
           <h3 className="recentLeftHeader">RECENTLY ADDED</h3>
           <div className="mainLeft">
-            <div className="eachBlog">
-              <a href=".">
+        {data.map(spaceTech => (
+          // <li >
+            <div key={item.id} className="eachBlog">
+              <Link to={`/spacetech/${spaceTech.id}/`}>
+              
+              
+              
                 <img src={BlogOne} />
                 <div className="text">
                   <h4 className="newsHeader">
-                    Market intelligence firm Sensor Tower conducts layoffs,
-                    several execs out
+                  {spaceTech.title}
                   </h4>
                   <div className="details">
                     <img src={ProfilePics} />
                     <h5 className="userName">Username |</h5>
                     <h6 className="datePosted">Date posted</h6>
                   </div>
-                  <p className="newsBody">
-                    Sensor Tower, a prominent market intelligence firm for the
-                    app economy, this week laid off a notable portion of its
-                    workforce, estimated at around 40 people out of the 270+ at
-                    the company, according to LinkedIn’s headcount. The layoffs
-                    included C-suite executives, TechCrunch has learned from
-                    multiple sources, including the...
+                  <p className="newsBody" limit={TEXT_LIMIT}>
+                        {spaceTech.description}
                   </p>
                 </div>
-              </a>
+              </Link>
             </div>
+          ))}
             {/* <hr className='hr'/> */}
           </div>
           <a className="seemore" href=".">
@@ -237,4 +279,4 @@ function LandingPage() {
   );
 }
 
-export default LandingPage;
+export default LandingPage();
