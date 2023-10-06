@@ -9,14 +9,16 @@ from rest_framework.permissions import IsAuthenticated
 # from django.shortcuts import get_object_or_404, render
 
 
+
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
     lookup_field = 'slug'
     # blog = get_object_or_404(SpaceTech, slug=slug)
 
-
 class SpaceTechViewSet(viewsets.ModelViewSet):
     queryset = SpaceTech.objects.all()
     serializer_class = SpaceTechSerializer
+    lookup_field = 'slug'
     authentication_classes = (TokenAuthentication,)

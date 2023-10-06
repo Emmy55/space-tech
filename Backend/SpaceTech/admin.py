@@ -1,11 +1,12 @@
 from django.contrib import admin
-from .models import SpaceTech
-# Register your models here.
+from .models import SpaceTech, Category
 
-
-
+@admin.register(SpaceTech)
 class SpaceTechAdmin(admin.ModelAdmin):
-    list_display = ('title', 'description')
+    list_display = ('title', 'description', 'slug',)
+    prepopulated_fields = {'slug': ('title',)}
 
-
-admin.site.register(SpaceTech, SpaceTechAdmin)
+@admin.register(Category)
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ('title', 'slug',)
+    prepopulated_fields = {'slug': ('title',)}

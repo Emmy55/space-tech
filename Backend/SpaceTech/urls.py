@@ -10,5 +10,5 @@ router.register('users', UserViewSet)
 
 urlpatterns = [
     path('model/', include(router.urls)),
-    path('api/spacetech/<slug:slug>/', UserViewSet.as_view({'get': 'retrieve'}), name='SPT'),
+    path('model/spacetech', SpaceTechViewSet.as_view({'get': 'retrieve'}), name='SpaceTech'),
 ]

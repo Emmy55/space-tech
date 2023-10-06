@@ -102,7 +102,7 @@ TEMPLATES = [
         },
     },
 ]
-DEBUG_PROPAGATE_EXCEPTIONS = True  # This allows exceptions to propagate to the custom handler.
+# DEBUG_PROPAGATE_EXCEPTIONS = True  # This allows exceptions to propagate to the custom handler.
 
 
 WSGI_APPLICATION = 'Backend.wsgi.application'
@@ -161,10 +161,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
-CORS_ORIGIN_WHITELIST = [
-     'http://localhost:3000'
-]
-
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:3000",  
-]

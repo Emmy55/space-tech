@@ -1,24 +1,49 @@
-from pydoc import describe
 from django.db import models
-from autoslug import AutoSlugField
-
-
-# Create your models here.
+from django.utils.text import slugify  # Add this import statement
 
 class SpaceTech(models.Model):
-    title = models.CharField(max_length=200)
+    
+    title = models.CharField(max_length=255)
     description = models.TextField()
-    slug = AutoSlugField(unique=True, populate_from='get_slug')
+    # Add other fields as needed
 
-    def get_slug(self):
-        return f"{self.id}-{self.title}".lower().replace(" ", "-")
+    slug = models.SlugField(max_length=255, unique=True)
 
-        
     def save(self, *args, **kwargs):
-        # Generate slug if it doesn't exist
         if not self.slug:
             self.slug = slugify(self.title)
-        
         super().save(*args, **kwargs)
+
     def __str__(self):
         return self.title
+
+    
+
+    def get_absolute_url(self):
+        return reverse('spacetech:product_list_by_category',
+                       args=[self.slug])
+
+
+
+
+
+
+
+
+
+class Category(models.Model):
+
+    title = models.CharField(max_length=200)
+
+    image = models.URLField(max_length=200)
+
+    slug = models.SlugField(max_length=200,
+                            unique=True)
+
+    class Meta:
+        ordering = ['title']
+        indexes = [
+            models.Index(fields=["title"]),
+        ]
+        verbose_name = 'category'
+        verbose_name_plural = 'categories'

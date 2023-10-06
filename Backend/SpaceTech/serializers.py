@@ -6,10 +6,19 @@ from rest_framework.authtoken.views import Token
 
 
 
+
+# class CategorySerializer(serializers.ModelSerializer):
+#     class Meta:
+#         model = Category
+#         fields = '__all__'
+
 class SpaceTechSerializer(serializers.ModelSerializer):
+    # category = CategorySerializer()  # Use CategorySerializer for the related field
+
     class Meta:
         model = SpaceTech
-        fields = '__all__'
+        fields = ['id', 'title', 'description', "slug", ]
+
 
 
 class UserSerializer(serializers.ModelSerializer):
