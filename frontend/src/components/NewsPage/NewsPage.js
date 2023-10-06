@@ -1,18 +1,12 @@
-import React, { useState, useRef, useEffect } from "react";
-// Components import start
+
+import React, { useRef, useEffect, useState } from 'react';
+
+import axios from 'axios';
 import DropdownMenu from "./DropdownMenu";
 import LinksdropDown from "./LinksdropDown";
 import SearchdropDown from "./SearchdropDown";
 import NewsHeader from "../NewsHeader/NewsHeader";
-// Components import end
-
-// CSS import start
 import "./NewsPage.css";
-// CSS import end
-
-// import { Link } from "react-router-dom";
-
-// Images import start
 import Logo from "../Assets/Images/Logo.svg";
 import Notification from "../Assets/Images/notification-line.svg";
 import Profile from "../Assets/Images/Sarah-profile.svg";
@@ -56,11 +50,45 @@ export default function NewsPage() {
     };
   }, []);
 
+  const maxLength = 300;
+  const [data, setData] = useState([]);
+  const [truncatedText, setTruncatedText] = useState('');
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const response = await axios.get('http://localhost:8000/api/model/spacetech/');
+        setData(response.data);
+      } catch (error) {
+        console.error('Error fetching data:', error);
+      }
+    };
+
+    fetchData();
+  }, []);
+
+  const truncateText = (text, maxLength) => {
+    if (text && text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  };
+
+  useEffect(() => {
+    // Assuming 'data.description' is the property you want to truncate
+    setTruncatedText(truncateText(data.description, maxLength));
+  }, [data.description, maxLength]);
+
+
+
+
+
   // const toggleDropdown = () => {
   //   setIsOpen(!isOpen);
   // };
 
   return (
+    <>
     <main>
       <NewsHeader />
       <div className="con">
@@ -157,52 +185,10 @@ export default function NewsPage() {
         <main className="main">
           <div className="main-left">
             <p className="for-you">For you</p>
-            <div className="news-1">
-              <div className="news-1-img">
-                <img className="news-pic" src={News1} alt="News Pic" />
-              </div>
-              <div className="news-1-text">
-                <div className="news-1-text-top">
-                  <a href="">
-                    <img
-                      className="profile-news"
-                      src={ProfileNews}
-                      alt="Profile"
-                    />
-                  </a>
-                  <p className="sarah">Sarah | September 11</p>
-                  <p className="follow">following</p>
-                </div>
-                <a href="">
-                  <h3 className="news-header">
-                    Market intelligence firm Sensor Tower conducts layoffs,
-                    several execs out
-                  </h3>
-                </a>
-                <p className="news-text">
-                  Sensor Tower, a prominent market intelligence firm for the app
-                  economy, this week laid off a notable portion of its
-                  workforce, estimated at around 40 people out of the 270+ at
-                  the company, according to LinkedIn’s headcount. The layoffs
-                  included C-suite executives, TechCrunch has learned from
-                  multiple sources, including the...
-                </p>
-                <div className="news-1-text-top-mobile">
-                  <a href="">
-                    <img
-                      className="profile-news"
-                      src={ProfileNews}
-                      alt="Profile"
-                    />
-                  </a>
-                  <p className="sarah">Sarah | September 11</p>
-                </div>
-                <div className="news-1-text-bottom">
-                  <p>5 min read</p>
-                </div>
-              </div>
-            </div>
+            
             {/* News 2 start */}
+
+            {data.map((item) => (
             <div className="news-1">
               <div className="news-1-img">
                 <img className="news-pic" src={News1} alt="News Pic" />
@@ -221,17 +207,11 @@ export default function NewsPage() {
                 </div>
                 <a href="">
                   <h3 className="news-header">
-                    Market intelligence firm Sensor Tower conducts layoffs,
-                    several execs out
+                  {item.title}
                   </h3>
                 </a>
                 <p className="news-text">
-                  Sensor Tower, a prominent market intelligence firm for the app
-                  economy, this week laid off a notable portion of its
-                  workforce, estimated at around 40 people out of the 270+ at
-                  the company, according to LinkedIn’s headcount. The layoffs
-                  included C-suite executives, TechCrunch has learned from
-                  multiple sources, including the...
+                {truncateText(item.description, maxLength)}
                 </p>
                 <div className="news-1-text-top-mobile">
                   <a href="">
@@ -248,54 +228,9 @@ export default function NewsPage() {
                 </div>
               </div>
             </div>
+            ))}
             {/* News 2 End */}
-            {/* News 3 start */}
-            <div className="news-1">
-              <div className="news-1-img">
-                <img className="news-pic" src={News1} alt="News Pic" />
-              </div>
-              <div className="news-1-text">
-                <div className="news-1-text-top">
-                  <a href="">
-                    <img
-                      className="profile-news"
-                      src={ProfileNews}
-                      alt="Profile"
-                    />
-                  </a>
-                  <p className="sarah">Sarah | September 11</p>
-                  <p className="follow">following</p>
-                </div>
-                <a href="">
-                  <h3 className="news-header">
-                    Market intelligence firm Sensor Tower conducts layoffs,
-                    several execs out
-                  </h3>
-                </a>
-                <p className="news-text">
-                  Sensor Tower, a prominent market intelligence firm for the app
-                  economy, this week laid off a notable portion of its
-                  workforce, estimated at around 40 people out of the 270+ at
-                  the company, according to LinkedIn’s headcount. The layoffs
-                  included C-suite executives, TechCrunch has learned from
-                  multiple sources, including the...
-                </p>
-                <div className="news-1-text-top-mobile">
-                  <a href="">
-                    <img
-                      className="profile-news"
-                      src={ProfileNews}
-                      alt="Profile"
-                    />
-                  </a>
-                  <p className="sarah">Sarah | September 11</p>
-                </div>
-                <div className="news-1-text-bottom">
-                  <p>5 min read</p>
-                </div>
-              </div>
-            </div>
-            {/* News 3 End */}
+            
           </div>
 
           <div className="main-right">
@@ -431,5 +366,6 @@ export default function NewsPage() {
         </main>
       </div>
     </main>
+    </>
   );
 }

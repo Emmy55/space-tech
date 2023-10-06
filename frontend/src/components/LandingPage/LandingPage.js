@@ -17,23 +17,37 @@ import Instagram from "../Assets/Instagram.png";
 import ArrowUp from "../Assets/arrowup.png";
 import ArrowRight from "../Assets/arrowRight.png";
 
-function LandingPage() {
 
+const LandingPage = () => {
+  const maxLength = 350;
   const [data, setData] = useState([]);
-
+  const [truncatedText, setTruncatedText] = useState('');
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/model/spacetech/')
+        const response = await axios.get('http://localhost:8000/api/model/spacetech/');
         setData(response.data);
       } catch (error) {
         console.error('Error fetching data:', error);
       }
     };
-  
+
     fetchData();
   }, []);
+
+  const truncateText = (text, maxLength) => {
+    if (text && text.length > maxLength) {
+      return text.substring(0, maxLength) + '...';
+    }
+    return text;
+  };
+
+  useEffect(() => {
+    // Assuming 'data.description' is the property you want to truncate
+    setTruncatedText(truncateText(data.description, maxLength));
+  }, [data.description, maxLength]);
+
 
   return (
     <div>
@@ -120,7 +134,7 @@ function LandingPage() {
                     <h6 className="datePosted">Date posted</h6>
                   </div>
                   <p className="newsBody">
-                     {item.description}
+                  {truncateText(item.description, maxLength)}
                   </p>
                 </div>
               </a>
