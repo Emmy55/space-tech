@@ -1,6 +1,5 @@
-
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "./landingPage.css";
 // import APISerive from "./APIService";
 import Background from "../Assets/background-img.svg";
@@ -18,20 +17,20 @@ import ArrowUp from "../Assets/arrowup.png";
 import ArrowRight from "../Assets/arrowRight.png";
 
 function LandingPage() {
-
   const [data, setData] = useState([]);
-
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/model/spacetech/')
+        const response = await axios.get(
+          "http://localhost:8000/api/model/spacetech/"
+        );
         setData(response.data);
       } catch (error) {
-        console.error('Error fetching data:', error);
+        console.error("Error fetching data:", error);
       }
     };
-  
+
     fetchData();
   }, []);
 
@@ -106,27 +105,23 @@ function LandingPage() {
         <div className="recentLeft">
           <h3 className="recentLeftHeader">RECENTLY ADDED</h3>
           <div className="mainLeft">
-                {data.map((item) => (
-            <div className="eachBlog">
-              <a href=".">
-                <img src={BlogOne} />
-                <div  className="text">
-                  <h4 className="newsHeader">
-                  {item.title}
-                  </h4>
-                  <div className="details">
-                    <img src={ProfilePics} />
-                    <h5 className="userName">Username |</h5>
-                    <h6 className="datePosted">Date posted</h6>
+            {data.map((item) => (
+              <div className="eachBlog">
+                <a href=".">
+                  <img src={BlogOne} />
+                  <div className="text">
+                    <h4 className="newsHeader">{item.title}</h4>
+                    <div className="details">
+                      <img src={ProfilePics} />
+                      <h5 className="userName">Username |</h5>
+                      <h6 className="datePosted">Date posted</h6>
+                    </div>
+                    <p className="newsBody">{item.description}</p>
                   </div>
-                  <p className="newsBody">
-                     {item.description}
-                  </p>
-                </div>
-              </a>
-            </div>
-              ))};
-            {/* <hr className='hr'/> */}
+                </a>
+              </div>
+            ))}
+            ;{/* <hr className='hr'/> */}
           </div>
           <a className="seemore" href=".">
             See More
