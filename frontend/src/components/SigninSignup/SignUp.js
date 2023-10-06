@@ -1,11 +1,12 @@
 import React, { useState } from "react";
 import "./SignUpStyle.css";
+import { Link } from "react-router-dom";
 
 import Logo from "../Assets/Logo.png";
 import OR from "../Assets/Group 1.png";
 import LineMobile from "../Assets/Images/line-mobile.png";
-import Link from "../Assets/logos_facebook.svg";
-import Llnk from "../Assets/skill-icons_linkedin.svg";
+import Facebook from "../Assets/logos_facebook.svg";
+import Llnkedin from "../Assets/skill-icons_linkedin.svg";
 import google from "../Assets/icons_google.svg";
 // import BG from "../Assets/Images/sign-in-bg.svg";
 import BG1 from "../Assets/Images/bg-1.svg";
@@ -33,7 +34,9 @@ function SignUp() {
             <h2 className="big-header-signup">Join SpaceTech</h2>
             <p className="small-header-signup">Register to continue</p>
             <div className="logo-container-signup">
-              <img src={Logo} alt="Logo" />
+              <Link to="/">
+                <img src={Logo} alt="Logo" />
+              </Link>
             </div>
           </div>
           <div className="signin-form-signup">
@@ -68,17 +71,19 @@ function SignUp() {
                 <img src={google} alt="google" />
               </a>
               <a className="linkedin-signup" href="https://www.linkedin.com">
-                <img src={Llnk} alt="linkedin" />
+                <img src={Llnkedin} alt="linkedin" />
               </a>
               <a href="https://www.facebook.com">
-                <img src={Link} alt="facebook" />
+                <img src={Facebook} alt="facebook" />
               </a>
             </div>
             <p className="signup-link-signup">
               Already have an account?
-              <a className="sign-up-signup" href="#">
-                Sign In
-              </a>
+              <Link to="/signin">
+                <a className="sign-up-signup" href="#">
+                  Sign In
+                </a>
+              </Link>
             </p>
           </div>
         </div>
