@@ -21,6 +21,10 @@ import ArrowRight from "../Assets/arrowRight.png";
 import Laptop from "../Assets/Laptop.png";
 
 export default function NewsViewPage() {
+
+  
+
+
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -29,9 +33,9 @@ export default function NewsViewPage() {
         setData(response.data);
         console.log(response.data);
       })
-      .catch(error => {
-        console.error('Error fetching data:', error);
-      });
+      // .catch(error => {
+      //   console.error('Error fetching data:', error);
+      // });
   }, []);
  
   return (

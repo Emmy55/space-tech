@@ -1,5 +1,5 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import { withRouter } from 'react-router-dom';
+
+import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import "./landingPage.css";
 // import APISerive from "./APIService";
@@ -16,48 +16,25 @@ import LinkedIn from "../Assets/LinkedIn.png";
 import Instagram from "../Assets/Instagram.png";
 import ArrowUp from "../Assets/arrowup.png";
 import ArrowRight from "../Assets/arrowRight.png";
-import { TEXT_LIMIT } from './constants';
-import { Link } from 'react-router-dom';
-import React, { useState, useEffect } from 'react';
 
-function LandingPage({ match }) {
-  const [data, setData] = useState(null);
+function LandingPage() {
+
+  const [data, setData] = useState([]);
+
 
   useEffect(() => {
-    const fetchSpaceTech = async () => {
+    const fetchData = async () => {
       try {
-        const response = await axios.get(`/api/model/spacetech/${match.params.id}/`);
+        const response = await axios.get('http://localhost:8000/api/model/spacetech/')
         setData(response.data);
       } catch (error) {
-        console.error('Error fetching space tech:', error);
+        console.error('Error fetching data:', error);
       }
     };
-
-    fetchSpaceTech();
-  }, [match.params.id]);
-
-  if (!data) {
-    return <p>Loading...</p>; // or handle loading state as appropriate
-  }
-
-  const spaceTechLink = generateSpaceTechLink(data);
-
-  return (
-    <div>
-      {spaceTechLink}
-      {/* Other content... */}
-    </div>
-  );
-}
-
-const generateSpaceTechLink = (spaceTech) => {
-  // Ensure spaceTech has an 'id' and 'title'
-  if (!spaceTech || !spaceTech.id || !spaceTech.title) {
-    console.error('Invalid spaceTech object');
-    return null;
-  }
-
   
+    fetchData();
+  }, []);
+
   return (
     <div>
       <div className="hero" id="hero">
@@ -129,30 +106,26 @@ const generateSpaceTechLink = (spaceTech) => {
         <div className="recentLeft">
           <h3 className="recentLeftHeader">RECENTLY ADDED</h3>
           <div className="mainLeft">
-        {data.map(spaceTech => (
-          // <li >
-            <div key={item.id} className="eachBlog">
-              <Link to={`/spacetech/${spaceTech.id}/`}>
-              
-              
-              
+                {data.map((item) => (
+            <div className="eachBlog">
+              <a href=".">
                 <img src={BlogOne} />
-                <div className="text">
+                <div  className="text">
                   <h4 className="newsHeader">
-                  {spaceTech.title}
+                  {item.title}
                   </h4>
                   <div className="details">
                     <img src={ProfilePics} />
                     <h5 className="userName">Username |</h5>
                     <h6 className="datePosted">Date posted</h6>
                   </div>
-                  <p className="newsBody" limit={TEXT_LIMIT}>
-                        {spaceTech.description}
+                  <p className="newsBody">
+                     {item.description}
                   </p>
                 </div>
-              </Link>
+              </a>
             </div>
-          ))}
+              ))};
             {/* <hr className='hr'/> */}
           </div>
           <a className="seemore" href=".">
@@ -279,4 +252,4 @@ const generateSpaceTechLink = (spaceTech) => {
   );
 }
 
-export default LandingPage();
+export default LandingPage;
