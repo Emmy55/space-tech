@@ -2,11 +2,9 @@ from django.db import models
 from django.utils.text import slugify  # Add this import statement
 
 class SpaceTech(models.Model):
-    
     title = models.CharField(max_length=255)
     description = models.TextField()
     # Add other fields as needed
-
     slug = models.SlugField(max_length=255, unique=True)
 
     def save(self, *args, **kwargs):

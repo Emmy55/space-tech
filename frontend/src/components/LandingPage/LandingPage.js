@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./landingPage.css";
+import { Link } from "react-router-dom";
 // import APISerive from "./APIService";
 import Background from "../Assets/background-img.svg";
 import Logo from "../Assets/Logo.png";
@@ -16,8 +17,10 @@ import Instagram from "../Assets/Instagram.png";
 import ArrowUp from "../Assets/arrowup.png";
 import ArrowRight from "../Assets/arrowRight.png";
 
-function LandingPage() {
+const LandingPage = () => {
+  const maxLength = 350;
   const [data, setData] = useState([]);
+  const [truncatedText, setTruncatedText] = useState("");
 
   useEffect(() => {
     const fetchData = async () => {
@@ -34,26 +37,46 @@ function LandingPage() {
     fetchData();
   }, []);
 
+  const truncateText = (text, maxLength) => {
+    if (text && text.length > maxLength) {
+      return text.substring(0, maxLength) + "...";
+    }
+    return text;
+  };
+
+  useEffect(() => {
+    // Assuming 'data.description' is the property you want to truncate
+    setTruncatedText(truncateText(data.description, maxLength));
+  }, [data.description, maxLength]);
+
   return (
     <div>
       <div className="hero" id="hero">
         <div className="header-landing">
-          <a href="./">
-            <img className="logo" src={Logo} alt="Logo" />
-          </a>
-          <div className="navLinks">
-            <a className="home" href=".">
-              Home
+          <Link to="/">
+            <a href="./">
+              <img className="logo" src={Logo} alt="Logo" />
             </a>
+          </Link>
+          <div className="navLinks">
+            <Link to="/">
+              <a className="home" href=".">
+                Home
+              </a>
+            </Link>
             <a className="contact" href=".">
               Contact
             </a>
-            <a className="signInBtn" href="">
-              Sign In
-            </a>
-            <a className="getBtn" href="">
-              Get started
-            </a>
+            <Link to="/signin">
+              <a className="signInBtn" href="">
+                Sign In
+              </a>
+            </Link>
+            <Link to="/signup">
+              <a className="getBtn" href="">
+                Get started
+              </a>
+            </Link>
           </div>
         </div>
         <div className="content-container">
@@ -65,9 +88,11 @@ function LandingPage() {
               A place where you get updated about <br /> what's happening in the
               world of <br /> technology
             </p>
-            <a href="" className="heroBtn">
-              Get Started
-            </a>
+            <Link to="/signup">
+              <a href="" className="heroBtn">
+                Get Started
+              </a>
+            </Link>
           </div>
         </div>
       </div>
@@ -116,7 +141,9 @@ function LandingPage() {
                       <h5 className="userName">Username |</h5>
                       <h6 className="datePosted">Date posted</h6>
                     </div>
-                    <p className="newsBody">{item.description}</p>
+                    <p className="newsBody">
+                      {truncateText(item.description, maxLength)}
+                    </p>
                   </div>
                 </a>
               </div>
@@ -245,6 +272,6 @@ function LandingPage() {
       </div>
     </div>
   );
-}
+};
 
 export default LandingPage;

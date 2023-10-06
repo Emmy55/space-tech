@@ -4,11 +4,10 @@ import {
   BrowserRouter as Router,
   Routes,
   Route,
-  Redirect,
+  Navigate,
 } from "react-router-dom";
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { Navigate } from "react-router-dom";
-import { Switch } from "react-router-dom";
+// import { Navigate } from "react-router-dom";
+
 import LandingPage from "./components/LandingPage/LandingPage";
 import NewsPage from "./components/NewsPage/NewsPage";
 import NewsViewPage from "./components/NewsViewPage/NewsViewPage";
@@ -21,12 +20,13 @@ function App() {
     <>
       <Router>
         <Routes>
-          <Route exact path="/" component={LandingPage} />
-          <Route path="/newspage" component={NewsPage} />
-          <Route path="/newsviewpage" component={NewsViewPage} />
-          <Route path="/signin" component={SignIn} />
-          <Route path="/signup" component={SignUp} />
-          <Navigate to="/" />
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/newspage" element={<NewsPage />} />
+          <Route path="/newsviewpage" element={<NewsViewPage />} />
+          <Route path="/signin" element={<SignIn />} />
+          <Route path="/signup" element={<SignUp />} />
+          {/* Redirect to home page if no route matches */}
+          <Route path="*" element={<Navigate to="/" />} />
         </Routes>
       </Router>
     </>
