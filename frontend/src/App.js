@@ -10,11 +10,11 @@ function App() {
   return (
     <div className="App">
       <LandingPage />
-      <NewsHeader />
-      <NewsViewPage />
-      <NewsPage />
-      <SignIn />
-      <SignUp />
+      {/* <NewsHeader /> */}
+      {/* <NewsViewPage /> */}
+      {/* <NewsPage /> */}
+      {/* <SignIn /> */}
+      {/* <SignUp /> */}
     </div>
   );
 }
