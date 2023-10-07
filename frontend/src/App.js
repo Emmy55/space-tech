@@ -27,6 +27,7 @@ function App() {
           <Route path="/signup" element={<SignUp />} />
           {/* Redirect to home page if no route matches */}
           <Route path="*" element={<Navigate to="/" />} />
+          <Route path="/news/:slug" element={<NewsViewPage />} />
         </Routes>
       </Router>
     </>
