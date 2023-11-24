@@ -7,6 +7,12 @@ import {
   Navigate,
 } from "react-router-dom";
 // import { Navigate } from "react-router-dom";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { fas } from "@fortawesome/free-solid-svg-icons";
+import { far } from "@fortawesome/free-regular-svg-icons";
+import { fab } from "@fortawesome/free-brands-svg-icons";
+
+library.add(fas, far, fab);
 
 import LandingPage from "./components/LandingPage/LandingPage";
 import NewsPage from "./components/NewsPage/NewsPage";

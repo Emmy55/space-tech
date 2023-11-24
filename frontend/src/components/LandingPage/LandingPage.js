@@ -17,6 +17,9 @@ import Instagram from "../Assets/Instagram.png";
 import ArrowUp from "../Assets/arrowup.png";
 import ArrowRight from "../Assets/arrowRight.png";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import LandingMenu from "./LandingMenu";
+
 const LandingPage = () => {
   const maxLength = 350;
   const [data, setData] = useState([]);
@@ -49,13 +52,23 @@ const LandingPage = () => {
     setTruncatedText(truncateText(data.description, maxLength));
   }, [data.description, maxLength]);
 
+  const [showMenu, setShowMenu] = useState(false);
+
+  const toggleMenu = () => {
+    setShowMenu(!showMenu);
+  };
+
+  const closeMenu = () => {
+    setShowMenu(false);
+  };
+
   return (
     <div>
       <div className="hero" id="hero">
         <div className="header-landing">
           <Link to="/">
             <a href="./">
-              <img className="logo" src={Logo} alt="Logo" />
+              <img className="logohome" src={Logo} alt="Logo" />
             </a>
           </Link>
           <div className="navLinks">
@@ -77,10 +90,26 @@ const LandingPage = () => {
                 Get started
               </a>
             </Link>
+            {!showMenu ? (
+              <FontAwesomeIcon
+                className="barIcon"
+                icon="fa-solid fa-bars"
+                onClick={toggleMenu}
+              />
+            ) : (
+              <FontAwesomeIcon
+                className="barIcon"
+                icon="fa-solid fa-times"
+                onClick={toggleMenu}
+              />
+            )}
+
+            {/* <LandingMenu /> */}
           </div>
         </div>
+        {showMenu ? <LandingMenu closeMenu={closeMenu} /> : null}
         <div className="content-container">
-          <img className="backImg" src={Background} alt="bkg" />
+          {/* <img className="backImg" src={Background} alt="bkg" /> */}
           <div className="content">
             <h1 className="contentHeader">Stay Up to Date</h1>
             <h2 className="contentSmallHeader">With technology</h2>
@@ -98,13 +127,13 @@ const LandingPage = () => {
       </div>
       <div className="next">
         <div className="left">
-          <img src={Thinker} alt="thinker" />
+          <img className="thinker" src={Thinker} alt="thinker" />
           <div className="lefttext">
             <div className="txt">
               <h3 className="txtHeader">
                 Stay In The Loop, Get the Tech Scoop!
               </h3>
-              <p>
+              <p className="txtbody">
                 Your go-to source for breaking tech news, trends, and updates
                 from the ever-evolving world of technology.
               </p>
@@ -112,13 +141,13 @@ const LandingPage = () => {
           </div>
         </div>
         <div className="right">
-          <img src={Team} alt="team" />
+          <img className="thinker" src={Team} alt="team" />
           <div className="righttext">
             <div className="txt">
               <h3 className="txtHeader">
                 Stay In The Know, Share the Tech Flow!
               </h3>
-              <p>
+              <p className="txtbody">
                 Stay informed about tech news and share your insights with
                 others, contributing to the tech world's knowledge.
               </p>
@@ -148,7 +177,7 @@ const LandingPage = () => {
                 </a>
               </div>
             ))}
-            ;{/* <hr className='hr'/> */}
+            {/* <hr className='hr'/> */}
           </div>
           <a className="seemore" href=".">
             See More
