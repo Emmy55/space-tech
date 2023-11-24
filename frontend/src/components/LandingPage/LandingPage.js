@@ -1,14 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./landingPage.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 // import APISerive from "./APIService";
 import Background from "../Assets/background-img.svg";
 import Logo from "../Assets/Logo.png";
 import Thinker from "../Assets/thinking.png";
 import Team from "../Assets/team.png";
 import BlogOne from "../Assets/blog_1.png";
-// import BlogTwo from "../Assets/blog_2.png";
 import ProfilePics from "../Assets/profilepics.png";
 import RecieveEmail from "../Assets/subscribe.png";
 import Facebook from "../Assets/Facebook.png";
@@ -28,9 +27,7 @@ const LandingPage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          "http://localhost:8000/api/model/spacetech/"
-        );
+        const response = await axios.get('http://localhost:8000/api/model/spacetech/');
         setData(response.data);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -48,7 +45,6 @@ const LandingPage = () => {
   };
 
   useEffect(() => {
-    // Assuming 'data.description' is the property you want to truncate
     setTruncatedText(truncateText(data.description, maxLength));
   }, [data.description, maxLength]);
 
@@ -60,6 +56,11 @@ const LandingPage = () => {
 
   const closeMenu = () => {
     setShowMenu(false);
+  const navigate = useNavigate();
+  };
+
+  const handleClick = (slug) => {
+    navigate(`/news/${slug}`);
   };
 
   return (
@@ -160,11 +161,13 @@ const LandingPage = () => {
           <h3 className="recentLeftHeader">RECENTLY ADDED</h3>
           <div className="mainLeft">
             {data.map((item) => (
-              <div className="eachBlog">
-                <a href=".">
+              <div className="eachBlog"  key={item.slug}>
+              <Link to={`/news/${item.slug}`}>
                   <img src={BlogOne} />
                   <div className="text">
-                    <h4 className="newsHeader">{item.title}</h4>
+                    <h4 className="newsHeader">
+                      {item.title}
+                    </h4>
                     <div className="details">
                       <img src={ProfilePics} />
                       <h5 className="userName">Username |</h5>
@@ -174,9 +177,9 @@ const LandingPage = () => {
                       {truncateText(item.description, maxLength)}
                     </p>
                   </div>
-                </a>
+                  </Link>
               </div>
-            ))}
+            ))};
             {/* <hr className='hr'/> */}
           </div>
           <a className="seemore" href=".">
@@ -302,5 +305,4 @@ const LandingPage = () => {
     </div>
   );
 };
-
 export default LandingPage;

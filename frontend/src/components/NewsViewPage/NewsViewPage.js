@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import axios from 'axios';
 // Components import start
 // import DropdownMenu from "../NewsPage/DropdownMenu";
@@ -21,32 +22,35 @@ import ArrowRight from "../Assets/arrowRight.png";
 import Laptop from "../Assets/Laptop.png";
 
 export default function NewsViewPage() {
-
-  
-
-
-  const [data, setData] = useState([]);
+  const { slug } = useParams();
+  const [news, setNews] = useState(null);
 
   useEffect(() => {
-    axios.get('http://127.0.0.1:8000/api/model/spacetech/')  // Use the correct API endpoint
-      .then(response => {
-        setData(response.data);
-        console.log(response.data);
-      })
-      // .catch(error => {
-      //   console.error('Error fetching data:', error);
-      // });
-  }, []);
- 
+    const fetchDetails = async () => {
+      try {
+        const response = await axios.get(`http://localhost:8000/api/model/spacetech/${slug}/`);
+        setNews(response.data);
+      } catch (error) {
+        console.error('Error fetching news details:', error);
+      }
+    };
+
+    fetchDetails();
+  }, [slug]);
+
+  if (!news) {
+    return <p>Loading...</p>;
+  }
+
   return (
     <div>
       <NewsHeader />
       <div>
-          {data.map(item => (
+          {news && (
         <div className="container">
           <div className="market">
             <h1 className="header-text">
-            {item.title}
+            {news.title}
             </h1>
           </div>
 
@@ -69,7 +73,7 @@ export default function NewsViewPage() {
 
           <div className="article-content">
             <p>
-            {item.description}
+            {news.description}
             </p>
 
           </div>
@@ -108,7 +112,7 @@ export default function NewsViewPage() {
             <input className="submit-post" type="submit" value="Post comment" />
           </div>
         </div>
-      ))}
+      )}
       </div>
     </div>
   );
